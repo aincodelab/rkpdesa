@@ -1,0 +1,2594 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Materi Narasumber Musrenbangdes 2027 — TPP Kecamatan Amonggedo</title>
+<style>
+  :root {
+    --primary: #0f4c81;
+    --primary-dark: #0a3459;
+    --primary-light: #1e6fb8;
+    --accent: #f5a623;
+    --accent-dark: #d48806;
+    --success: #16a34a;
+    --danger: #dc2626;
+    --warning: #f59e0b;
+    --purple: #7c3aed;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.7;
+    color: var(--gray-800);
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8eef5 100%);
+    min-height: 100vh;
+  }
+
+  /* ============ COVER ============ */
+  .cover {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+    color: white;
+    padding: 80px 40px 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(245,166,35,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .cover-content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
+
+  .badge-top {
+    display: inline-block;
+    background: rgba(245,166,35,0.2);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .cover h1 {
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+
+  .cover h1 span { color: var(--accent); }
+
+  .cover-subtitle {
+    font-size: clamp(15px, 1.6vw, 19px);
+    opacity: 0.95;
+    max-width: 720px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+  }
+
+  .cover-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .meta-card {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 16px 24px;
+    border-radius: 12px;
+    min-width: 160px;
+  }
+
+  .meta-card .label { font-size: 11px; opacity: 0.8; letter-spacing: 1px; text-transform: uppercase; }
+  .meta-card .value { font-size: 16px; font-weight: 700; margin-top: 4px; color: var(--accent); }
+
+  /* ============ NAVIGATION (MAIN + SUBMENU) ============ */
+  .nav-sticky {
+    position: sticky;
+    top: 0;
+    background: white;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    z-index: 100;
+  }
+
+  .nav-inner {
+    display: flex;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+    align-items: center;
+    gap: 2px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+
+  .nav-item {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--gray-700);
+    text-decoration: none;
+    padding: 18px 14px;
+    font-size: 13.5px;
+    font-weight: 700;
+    transition: all 0.2s;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .nav-link:hover,
+  .nav-item:hover .nav-link {
+    color: var(--primary);
+    border-bottom-color: var(--accent);
+    background: var(--gray-50);
+  }
+
+  .nav-link .arrow {
+    font-size: 10px;
+    transition: transform 0.2s;
+    opacity: 0.6;
+  }
+
+  .nav-item:hover .nav-link .arrow {
+    transform: rotate(180deg);
+  }
+
+  /* Submenu */
+  .submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 260px;
+    background: white;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 12px 32px rgba(15,76,129,0.15);
+    padding: 8px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.22s ease;
+    z-index: 200;
+    border: 1px solid var(--gray-200);
+    border-top: none;
+  }
+
+  .nav-item:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .submenu a {
+    display: block;
+    color: var(--gray-700);
+    text-decoration: none;
+    padding: 10px 20px 10px 24px;
+    font-size: 13px;
+    font-weight: 600;
+    border-left: 3px solid transparent;
+    transition: all 0.18s;
+  }
+
+  .submenu a:hover {
+    background: #eff6ff;
+    color: var(--primary);
+    border-left-color: var(--accent);
+    padding-left: 28px;
+  }
+
+  .submenu a .sub-icon {
+    margin-right: 8px;
+    font-size: 14px;
+    opacity: 0.85;
+  }
+
+  /* Mobile menu toggle */
+  .nav-mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--primary);
+    cursor: pointer;
+    padding: 14px;
+  }
+
+  @media (max-width: 900px) {
+    .nav-inner {
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 8px 0;
+    }
+    .nav-inner.open { display: flex; }
+    .nav-item { width: 100%; }
+    .nav-link { padding: 14px 20px; border-bottom: 1px solid var(--gray-100); border-left: 3px solid transparent; }
+    .nav-link:hover { border-left-color: var(--accent); border-bottom-color: var(--gray-100); }
+    .submenu {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      box-shadow: none;
+      border: none;
+      border-radius: 0;
+      background: var(--gray-50);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding: 0;
+    }
+    .nav-item:hover .submenu { max-height: 500px; }
+    .nav-mobile-toggle { display: block; }
+    .nav-bar-mobile {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 16px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .nav-bar-mobile .brand {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 14px;
+    }
+  }
+
+  @media (min-width: 901px) {
+    .nav-bar-mobile { display: none; }
+  }
+
+  /* ============ CONTAINER ============ */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  /* ============ SECTIONS ============ */
+  section {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 24px rgba(15,76,129,0.06);
+    border: 1px solid rgba(15,76,129,0.06);
+    scroll-margin-top: 90px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--gray-100);
+  }
+
+  .section-number {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    flex-shrink: 0;
+    box-shadow: 0 6px 16px rgba(15,76,129,0.25);
+  }
+
+  .section-number.purple {
+    background: linear-gradient(135deg, var(--purple) 0%, #a78bfa 100%);
+    box-shadow: 0 6px 16px rgba(124,58,237,0.3);
+  }
+
+  .section-number.green {
+    background: linear-gradient(135deg, #16a34a 0%, #4ade80 100%);
+    box-shadow: 0 6px 16px rgba(22,163,74,0.3);
+  }
+
+  .section-title {
+    font-size: clamp(18px, 2.2vw, 24px);
+    font-weight: 800;
+    color: var(--primary-dark);
+    line-height: 1.3;
+  }
+
+  .section-title small {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent-dark);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  h3 {
+    color: var(--primary-dark);
+    font-size: 18px;
+    font-weight: 700;
+    margin: 24px 0 12px;
+    padding-left: 12px;
+    border-left: 4px solid var(--accent);
+  }
+
+  h4 {
+    color: var(--primary);
+    font-size: 16px;
+    font-weight: 700;
+    margin: 20px 0 10px;
+  }
+
+  p { margin-bottom: 12px; color: var(--gray-700); }
+
+  ul, ol { margin: 12px 0 16px 24px; }
+  li { margin-bottom: 8px; color: var(--gray-700); }
+
+  strong { color: var(--gray-900); }
+
+  a.reg-link {
+    color: var(--primary);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--primary-light);
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+
+  a.reg-link:hover {
+    color: var(--accent-dark);
+    border-bottom-color: var(--accent-dark);
+    background: #fef3c7;
+    padding: 1px 4px;
+    border-radius: 3px;
+  }
+
+  /* ============ CARDS ============ */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+
+  .card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent);
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(15,76,129,0.12);
+    border-color: var(--primary-light);
+  }
+
+  .card .card-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .card .card-title {
+    font-weight: 700;
+    color: var(--primary-dark);
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+
+  .card .card-text {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+
+  /* ============ CALLOUTS ============ */
+  .callout {
+    padding: 16px 20px;
+    border-radius: 10px;
+    margin: 18px 0;
+    border-left: 5px solid;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 14.5px;
+  }
+
+  .callout .icon { font-size: 20px; flex-shrink: 0; line-height: 1.4; }
+  .callout .content { flex: 1; }
+  .callout .content strong { display: block; margin-bottom: 4px; }
+
+  .callout-info { background: #eff6ff; border-color: #3b82f6; color: #1e40af; }
+  .callout-info .icon { color: #3b82f6; }
+  .callout-warning { background: #fffbeb; border-color: var(--warning); color: #92400e; }
+  .callout-warning .icon { color: var(--warning); }
+  .callout-danger { background: #fef2f2; border-color: var(--danger); color: #991b1b; }
+  .callout-danger .icon { color: var(--danger); }
+  .callout-success { background: #f0fdf4; border-color: var(--success); color: #166534; }
+  .callout-success .icon { color: var(--success); }
+  .callout-purple { background: #f5f3ff; border-color: var(--purple); color: #5b21b6; }
+  .callout-purple .icon { color: var(--purple); }
+
+  /* ============ TABLES ============ */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 20px 0;
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: white;
+  }
+
+  thead {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+  }
+
+  th {
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--gray-200);
+    color: var(--gray-700);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--gray-50); }
+  tbody tr:hover { background: #eff6ff; }
+
+  /* ============ TIMELINE ============ */
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+    margin: 30px 0;
+    counter-reset: tl;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 100%);
+    border-radius: 3px;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 24px;
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.25s;
+  }
+
+  .timeline-item:hover {
+    background: white;
+    box-shadow: 0 8px 20px rgba(15,76,129,0.1);
+    transform: translateX(4px);
+  }
+
+  .timeline-item::before {
+    content: counter(tl);
+    counter-increment: tl;
+    position: absolute;
+    left: -40px;
+    top: 20px;
+    width: 32px;
+    height: 32px;
+    background: white;
+    border: 3px solid var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 13px;
+    color: var(--primary);
+    box-shadow: 0 0 0 4px var(--gray-50);
+  }
+
+  .timeline-item.purple-step::before {
+    border-color: var(--purple);
+    color: var(--purple);
+  }
+
+  .timeline-item .tahap-badge {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .timeline-item .tahap-badge.purple { background: var(--purple); }
+
+  .timeline-item h4 {
+    margin-top: 0;
+    font-size: 16px;
+    color: var(--primary-dark);
+  }
+
+  .timeline-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    margin: 12px 0;
+    font-size: 13px;
+  }
+
+  .timeline-meta div {
+    background: white;
+    border: 1px solid var(--gray-200);
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+
+  .timeline-meta strong { color: var(--primary); font-size: 11px; display: block; letter-spacing: 0.5px; text-transform: uppercase; }
+
+  /* ============ STAT CARDS ============ */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .stat-card {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    padding: 24px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(15,76,129,0.2);
+  }
+
+  .stat-card.accent {
+    background: linear-gradient(135deg, var(--accent) 0%, #f7b955 100%);
+    box-shadow: 0 8px 24px rgba(245,166,35,0.3);
+  }
+
+  .stat-card.purple {
+    background: linear-gradient(135deg, var(--purple) 0%, #a78bfa 100%);
+    box-shadow: 0 8px 24px rgba(124,58,237,0.3);
+  }
+
+  .stat-card .stat-value {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+
+  .stat-card .stat-label {
+    font-size: 13px;
+    opacity: 0.95;
+    font-weight: 500;
+  }
+
+  /* ============ NUMBERED LIST ============ */
+  .num-list {
+    counter-reset: nl;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .num-list li {
+    counter-increment: nl;
+    position: relative;
+    padding: 14px 14px 14px 56px;
+    background: var(--gray-50);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--gray-200);
+    transition: all 0.2s;
+  }
+
+  .num-list li::before {
+    content: counter(nl);
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 13px;
+  }
+
+  .num-list li:hover {
+    background: white;
+    box-shadow: 0 6px 16px rgba(15,76,129,0.1);
+    transform: translateX(4px);
+  }
+
+  /* ============ FLOW DIAGRAM ============ */
+  .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 24px 0;
+  }
+
+  .flow-step {
+    background: linear-gradient(135deg, #f8fafc 0%, #eef4fa 100%);
+    border: 2px solid var(--primary-light);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.25s;
+  }
+
+  .flow-step.purple-step {
+    background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+    border-color: #a78bfa;
+  }
+
+  .flow-step:hover {
+    background: white;
+    border-color: var(--accent);
+    transform: scale(1.01);
+    box-shadow: 0 8px 20px rgba(15,76,129,0.1);
+  }
+
+  .flow-step .num {
+    background: var(--primary);
+    color: white;
+    min-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .flow-step .num.purple { background: var(--purple); }
+
+  .flow-step .info { flex: 1; }
+  .flow-step .info strong { display: block; color: var(--primary-dark); font-size: 15px; margin-bottom: 2px; }
+  .flow-step .info small { color: var(--gray-600); font-size: 13px; }
+
+  .flow-arrow {
+    text-align: center;
+    color: var(--accent);
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  /* ============ PILLS ============ */
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+  }
+
+  .pill {
+    background: #eff6ff;
+    color: var(--primary);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 12.5px;
+    font-weight: 600;
+    border: 1px solid #bfdbfe;
+  }
+
+  .pill.accent {
+    background: #fef3c7;
+    color: #92400e;
+    border-color: #fde68a;
+  }
+
+  .pill.success {
+    background: #dcfce7;
+    color: #166534;
+    border-color: #bbf7d0;
+  }
+
+  .pill.danger {
+    background: #fee2e2;
+    color: #991b1b;
+    border-color: #fecaca;
+  }
+
+  .pill.purple {
+    background: #f5f3ff;
+    color: #5b21b6;
+    border-color: #ddd6fe;
+  }
+
+  /* ============ DOWNLOAD SECTION ============ */
+  .download-box {
+    display: flex;
+    gap: 28px;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border: 2px solid var(--success);
+    border-radius: 16px;
+    padding: 32px;
+    margin: 28px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .download-box::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(22,163,74,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .download-icon {
+    font-size: 64px;
+    flex-shrink: 0;
+    line-height: 1;
+    align-self: flex-start;
+  }
+
+  .download-content {
+    flex: 1;
+  }
+
+  .download-content h3 {
+    color: var(--success);
+    border-left-color: var(--success);
+    margin-top: 0;
+    font-size: 20px;
+  }
+
+  .download-desc {
+    font-size: 15px;
+    color: var(--gray-700);
+    margin-bottom: 16px;
+  }
+
+  .download-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .download-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13.5px;
+    color: var(--gray-700);
+    padding: 6px 10px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 8px;
+  }
+
+  .download-item .check {
+    color: var(--success);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--success) 0%, #22c55e 100%);
+    color: white;
+    text-decoration: none;
+    padding: 18px 40px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 24px rgba(22,163,74,0.35);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    animation: pulse-btn 2s infinite;
+  }
+
+  .download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 32px rgba(22,163,74,0.45);
+    background: linear-gradient(135deg, #15803d 0%, var(--success) 100%);
+    color: white;
+  }
+
+  .download-btn:active {
+    transform: translateY(0);
+  }
+
+  @keyframes pulse-btn {
+    0%, 100% { box-shadow: 0 8px 24px rgba(22,163,74,0.35); }
+    50% { box-shadow: 0 8px 32px rgba(22,163,74,0.6); }
+  }
+
+  .download-note {
+    font-size: 13px;
+    color: var(--gray-600);
+    margin-top: 14px;
+    font-style: italic;
+  }
+
+  /* ============ FLOATING DOWNLOAD BUTTON ============ */
+  .floating-download {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--success) 0%, #22c55e 100%);
+    color: white;
+    text-decoration: none;
+    padding: 14px 24px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 8px 28px rgba(22,163,74,0.45);
+    z-index: 999;
+    transition: all 0.3s ease;
+    animation: float-bounce 3s ease-in-out infinite;
+  }
+
+  .floating-download:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 14px 36px rgba(22,163,74,0.55);
+    color: white;
+  }
+
+  .floating-icon {
+    font-size: 20px;
+    animation: bounce-arrow 1.5s infinite;
+  }
+
+  @keyframes float-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes bounce-arrow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+    color: white;
+    padding: 48px 20px 36px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  footer .footer-badge {
+    display: inline-block;
+    background: rgba(245,166,35,0.2);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  footer .footer-title {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  footer .footer-sub {
+    color: rgba(255,255,255,0.85);
+    font-size: 14.5px;
+    margin-bottom: 4px;
+  }
+
+  footer .footer-author {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 16px 0 8px;
+  }
+
+  footer .footer-note {
+    font-size: 13px;
+    opacity: 0.7;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+
+  /* ============ PRINT ============ */
+  @media print {
+    body { background: white; }
+    .nav-sticky { position: static; }
+    .floating-download { display: none; }
+    section { box-shadow: none; border: 1px solid var(--gray-200); break-inside: avoid; }
+    .cover { background: var(--primary-dark) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    a.reg-link { color: var(--primary) !important; }
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 640px) {
+    section { padding: 24px 18px; }
+    .cover { padding: 60px 20px 70px; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .timeline { padding-left: 30px; }
+    .timeline-item::before { left: -30px; width: 26px; height: 26px; font-size: 11px; }
+    .timeline::before { left: 10px; }
+    .stat-card .stat-value { font-size: 24px; }
+    th, td { padding: 10px 12px; font-size: 13px; }
+    .download-box { flex-direction: column; padding: 20px; gap: 16px; }
+    .download-icon { font-size: 44px; }
+    .download-btn { font-size: 14px; padding: 14px 24px; width: 100%; justify-content: center; }
+    .download-list { grid-template-columns: 1fr; }
+    .floating-download {
+      bottom: 16px;
+      right: 16px;
+      padding: 12px 18px;
+      font-size: 12px;
+    }
+    .floating-text { display: none; }
+    .floating-icon { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<header class="cover">
+  <div class="cover-content">
+    <div class="badge-top">📋 Materi Narasumber Resmi</div>
+    <h1>Musyawarah Perencanaan Pembangunan <span>Desa 2027</span></h1>
+    <p class="cover-subtitle">
+      Panduan lengkap perencanaan pembangunan desa dari kewenangan desa hingga terbentuknya APBDesa,
+      berdasarkan regulasi terbaru: UU No. 3 Tahun 2024, PP No. 16 Tahun 2026, Permendes PDTT No. 21 Tahun 2020,
+      PMK No. 7 Tahun 2026, Permendes PDT No. 16 Tahun 2025, dan Permendagri No. 20 Tahun 2018.
+    </p>
+    <div class="cover-meta">
+      <div class="meta-card">
+        <div class="label">Tahun Anggaran</div>
+        <div class="value">2027</div>
+      </div>
+      <div class="meta-card">
+        <div class="label">Tahapan Kritis</div>
+        <div class="value">Juni – Des 2026</div>
+      </div>
+      <div class="meta-card">
+        <div class="label">Proyeksi Dana Desa</div>
+        <div class="value">Rp77 Triliun</div>
+      </div>
+      <div class="meta-card">
+        <div class="label">Fokus Penggunaan</div>
+        <div class="value">8 Fokus</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ NAVIGATION (MAIN + SUBMENU) ============ -->
+<nav class="nav-sticky">
+  <div class="nav-bar-mobile">
+    <span class="brand">📋 Musrenbangdes 2027</span>
+    <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-inner').classList.toggle('open')">☰</button>
+  </div>
+
+  <div class="nav-inner">
+    <!-- Menu 1: Pendahuluan -->
+    <div class="nav-item">
+      <a class="nav-link" href="#bab1">🏛️ Pendahuluan <span class="arrow">▼</span></a>
+      <div class="submenu">
+        <a href="#bab1"><span class="sub-icon">⚖️</span> Urgensi &amp; Dasar Hukum</a>
+        <a href="#bab2"><span class="sub-icon">📚</span> Dokumen Perencanaan</a>
+      </div>
+    </div>
+
+    <!-- Menu 2: Kerangka Regulasi -->
+    <div class="nav-item">
+      <a class="nav-link" href="#bab2a">📜 Kerangka Regulasi <span class="arrow">▼</span></a>
+      <div class="submenu">
+        <a href="#bab2a"><span class="sub-icon">🏛️</span> Kewenangan Desa</a>
+        <a href="#bab3"><span class="sub-icon">🎯</span> RPJMN 2025–2029</a>
+      </div>
+    </div>
+
+    <!-- Menu 3: Alur Perencanaan -->
+    <div class="nav-item">
+      <a class="nav-link" href="#bab4">🔄 Alur Perencanaan <span class="arrow">▼</span></a>
+      <div class="submenu">
+        <a href="#bab4"><span class="sub-icon">🟣</span> Rembuk Stunting (Tahap 0)</a>
+        <a href="#bab4"><span class="sub-icon">📝</span> 7 Tahapan RKPDes</a>
+        <a href="#bab4a"><span class="sub-icon">💰</span> Hingga APBDesa Terbentuk</a>
+      </div>
+    </div>
+
+    <!-- Menu 4: Kelembagaan -->
+    <div class="nav-item">
+      <a class="nav-link" href="#bab5">👥 Kelembagaan <span class="arrow">▼</span></a>
+      <div class="submenu">
+        <a href="#bab5"><span class="sub-icon">🤝</span> Pemangku Kepentingan</a>
+        <a href="#bab5"><span class="sub-icon">📋</span> Peran &amp; Tanggung Jawab</a>
+      </div>
+    </div>
+
+    <!-- Menu 5: Dana Desa -->
+    <div class="nav-item">
+      <a class="nav-link" href="#bab6">💰 Dana Desa <span class="arrow">▼</span></a>
+      <div class="submenu">
+        <a href="#bab6"><span class="sub-icon">📋</span> Regulasi Terbaru</a>
+        <a href="#bab6"><span class="sub-icon">🎯</span> 8 Fokus Penggunaan</a>
+        <a href="#bab6"><span class="sub-icon">🚫</span> Larangan &amp; Sanksi</a>
+        <a href="#bab6"><span class="sub-icon">📈</span> Proyeksi 2027</a>
+      </div>
+    </div>
+
+    <!-- Menu 6: Implementasi -->
+    <div class="nav-item">
+      <a class="nav-link" href="#bab7">⭐ Implementasi <span class="arrow">▼</span></a>
+      <div class="submenu">
+        <a href="#bab7"><span class="sub-icon">📊</span> Isu Strategis</a>
+        <a href="#bab8"><span class="sub-icon">⚠️</span> Kesalahan Umum</a>
+        <a href="#bab9"><span class="sub-icon">✅</span> Rekomendasi Praktis</a>
+      </div>
+    </div>
+
+    <!-- Menu 7: Referensi -->
+    <div class="nav-item">
+      <a class="nav-link" href="#lampiran">📎 Referensi <span class="arrow">▼</span></a>
+      <div class="submenu">
+        <a href="#lampiran"><span class="sub-icon">📚</span> Daftar Regulasi Lengkap</a>
+        <a href="#lampiran"><span class="sub-icon">🔗</span> Tautan Resmi</a>
+      </div>
+    </div>
+
+    <!-- Menu 8: Download -->
+    <div class="nav-item">
+      <a class="nav-link" href="#download">📥 Download <span class="arrow">▼</span></a>
+      <div class="submenu">
+        <a href="#download"><span class="sub-icon">📂</span> Kelengkapan Perencanaan</a>
+        <a href="https://drive.google.com/drive/folders/16ZzB_1lQEYmye-2dtdIUcjRLwrRTixEA?usp=sharing" target="_blank" rel="noopener"><span class="sub-icon">🔗</span> Google Drive</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+
+<!-- ============ BAB I ============ -->
+<section id="bab1">
+  <div class="section-header">
+    <div class="section-number">I</div>
+    <div class="section-title">
+      <small>Pendahuluan</small>
+      Urgensi dan Dasar Hukum
+    </div>
+  </div>
+
+  <p>
+    Musrenbangdes bukan sekadar formalitas administratif, melainkan <strong>instrumen konstitusional</strong> desa untuk merencanakan pembangunan secara partisipatif, transparan, dan akuntabel. Forum ini adalah amanat undang-undang, bukan agenda rutin semata.
+  </p>
+
+  <h3>Dasar Hukum Utama</h3>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-icon">⚖️</span>
+      <div class="card-title">
+        <a class="reg-link" href="https://peraturan.bpk.go.id/Details/283617/uu-no-3-" target="_blank" rel="noopener">UU No. 3 Tahun 2024 ↗</a>
+      </div>
+      <div class="card-text">Perubahan Kedua UU Desa. Pasal 79 ayat (1) menegaskan kewenangan desa menyusun perencanaan. Masa jabatan Kepala Desa menjadi <strong>8 tahun</strong>, maksimal 2 periode.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">📜</span>
+      <div class="card-title">
+        <a class="reg-link" href="https://peraturan.bpk.go.id/Details/349409/pp-no-16-tahun-2026" target="_blank" rel="noopener">PP No. 16 Tahun 2026 ↗</a>
+      </div>
+      <div class="card-text">Ditetapkan <strong>27 Maret 2026</strong>. Menggantikan PP 43/2014, PP 47/2015, dan PP 11/2019. Mengatur perencanaan berbasis data dan integrasi lintas level.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">📘</span>
+      <div class="card-title">
+        <a class="reg-link" href="https://peraturan.bpk.go.id/Details/199685/permendesa-pdtt-no-21-tahun-2020" target="_blank" rel="noopener">Permendes PDTT No. 21/2020 ↗</a>
+      </div>
+      <div class="card-text">Pedoman Umum Pembangunan Desa. Acuan teknis utama untuk tahapan penyusunan RKP Desa, termasuk Rembuk Stunting.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">💰</span>
+      <div class="card-title">
+        <a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">Permendagri No. 20/2018 ↗</a>
+      </div>
+      <div class="card-text">Pengelolaan Keuangan Desa. Acuan teknis utama penyusunan APBDesa. <strong>Mencabut Permendagri 113/2014</strong> dan <strong>mengubah Permendagri 114/2014</strong>.</div>
+    </div>
+  </div>
+
+  <div class="callout callout-warning">
+    <span class="icon">⚠️</span>
+    <div class="content">
+      <strong>Catatan Penting untuk Narasumber</strong>
+      Seiring berlakunya PP 16/2026, acuan perencanaan desa <strong>tidak lagi merujuk pada Permendagri No. 114 Tahun 2014</strong> sebagai dasar utama. Untuk pengelolaan keuangan desa hingga APBDesa, acuan teknis tetap merujuk pada <a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">Permendagri No. 20 Tahun 2018 ↗</a>.
+    </div>
+  </div>
+
+  <div class="callout callout-success">
+    <span class="icon">📥</span>
+    <div class="content">
+      <strong>Template &amp; Kelengkapan Perencanaan</strong>
+      Seluruh format dokumen perencanaan desa 2027 dapat diunduh melalui tautan berikut:
+      <a href="https://drive.google.com/drive/folders/16ZzB_1lQEYmye-2dtdIUcjRLwrRTixEA?usp=sharing" target="_blank" rel="noopener" class="reg-link" style="font-weight:800; color: var(--success);"> ⬇️ SILAHKAN DOWNLOAD KELENGKAPAN ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BAB II ============ -->
+<section id="bab2">
+  <div class="section-header">
+    <div class="section-number">II</div>
+    <div class="section-title">
+      <small>Fondasi Dokumen</small>
+      RPJMDes, RKPDes, dan APBDesa
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Dokumen</th>
+          <th>Jangka Waktu</th>
+          <th>Fungsi</th>
+          <th>Dasar Hukum</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>RPJM Desa</strong></td>
+          <td>8 tahun</td>
+          <td>Dokumen induk perencanaan jangka menengah</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/283617/uu-no-3-" target="_blank" rel="noopener">UU 3/2024</a>, <a class="reg-link" href="https://peraturan.bpk.go.id/Details/349409/pp-no-16-tahun-2026" target="_blank" rel="noopener">PP 16/2026</a></td>
+        </tr>
+        <tr>
+          <td><strong>RKP Desa</strong></td>
+          <td>1 tahun</td>
+          <td>Penjabaran RPJMDes untuk tahun anggaran tertentu</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/199685/permendesa-pdtt-no-21-tahun-2020" target="_blank" rel="noopener">Permendes 21/2020</a>, <a class="reg-link" href="https://peraturan.bpk.go.id/Details/349409/pp-no-16-tahun-2026" target="_blank" rel="noopener">PP 16/2026</a></td>
+        </tr>
+        <tr>
+          <td><strong>APBDesa</strong></td>
+          <td>1 tahun</td>
+          <td>Dokumen anggaran berbasis RKP Desa</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">Permendagri 20/2018</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Muatan RKP Desa</h3>
+  <ol class="num-list">
+    <li>Evaluasi pelaksanaan RKP Desa tahun berjalan</li>
+    <li>Prioritas program, kegiatan, dan anggaran yang dikelola desa</li>
+    <li>Prioritas program melalui kerja sama antar-desa dan pihak ketiga</li>
+    <li>Rencana program/kegiatan kewenangan penugasan dari Pemerintah/Pemda</li>
+    <li>Desain teknis, rencana kegiatan, dan rencana anggaran biaya</li>
+    <li>Pelaksana kegiatan desa (perangkat desa dan/atau unsur masyarakat)</li>
+  </ol>
+
+  <div class="callout callout-info">
+    <span class="icon">💡</span>
+    <div class="content">
+      <strong>Pesan Kunci</strong>
+      RKPDes 2027 adalah penjabaran tahunan RPJMDes. Setiap usulan harus dapat dilacak rujukannya ke RPJMDes.
+    </div>
+  </div>
+</section>
+
+<!-- ============ BAB II-A KEWENANGAN DESA ============ -->
+<section id="bab2a">
+  <div class="section-header">
+    <div class="section-number green">II-A</div>
+    <div class="section-title">
+      <small>Fondasi Legal</small>
+      Kewenangan Desa Berdasarkan PP No. 16 Tahun 2026
+    </div>
+  </div>
+
+  <p>
+    Sebelum menyusun perencanaan, desa harus memahami <strong>kewenangan yang dimilikinya</strong>. Berdasarkan <a class="reg-link" href="https://peraturan.bpk.go.id/Details/349409/pp-no-16-tahun-2026" target="_blank" rel="noopener">PP No. 16 Tahun 2026 Bab III Pasal 31–37 ↗</a>, kewenangan desa terbagi dalam <strong>empat klasifikasi</strong>:
+  </p>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-icon">🏛️</span>
+      <div class="card-title">1. Kewenangan Berdasarkan Hak Asal Usul</div>
+      <div class="card-text">Kewenangan yang merupakan warisan yang berupa hak asal usul desa, seperti hak atas tanah, hutan adat, dan pengelolaan sumber daya alam berdasarkan adat istiadat setempat.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🏘️</span>
+      <div class="card-title">2. Kewenangan Lokal Berskala Desa</div>
+      <div class="card-text">Kewenangan untuk mengatur dan mengurus kepentingan masyarakat setempat, seperti pelayanan dasar, infrastruktur desa, dan pemberdayaan ekonomi lokal.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">📋</span>
+      <div class="card-title">3. Kewenangan Penugasan</div>
+      <div class="card-text">Kewenangan yang ditugaskan oleh Pemerintah, Pemerintah Provinsi, atau Pemerintah Kabupaten/Kota sesuai kebutuhan.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">📜</span>
+      <div class="card-title">4. Kewenangan Lain</div>
+      <div class="card-text">Kewenangan sesuai ketentuan peraturan perundang-undangan yang berlaku, termasuk kewenangan yang muncul dari kebijakan baru pemerintah pusat.</div>
+    </div>
+  </div>
+
+  <div class="callout callout-success">
+    <span class="icon">🔑</span>
+    <div class="content">
+      <strong>Implikasi bagi Perencanaan Desa</strong>
+      Setiap usulan dalam RKPDes harus <strong>berada dalam ranah kewenangan desa</strong>. Usulan yang tidak masuk ranah kewenangan desa harus diusulkan melalui skema penugasan atau musyawarah lintas sektor (Musrenbang Kecamatan).
+    </div>
+  </div>
+</section>
+
+<!-- ============ BAB III ============ -->
+<section id="bab3">
+  <div class="section-header">
+    <div class="section-number">III</div>
+    <div class="section-title">
+      <small>Selaras dengan Nasional</small>
+      RPJMN 2025–2029 dan Prioritas Nasional
+    </div>
+  </div>
+
+  <p>
+    Musrenbangdes 2027 harus <strong>selaras dengan arah pembangunan nasional</strong>. Dalam RPJMN 2025–2029, yang ditetapkan melalui <a class="reg-link" href="https://peraturan.bpk.go.id/Details/314638/perpres-" target="_blank" rel="noopener">Perpres No. 12 Tahun 2025 ↗</a>, terdapat Prioritas Nasional: <em>"Membangun dari Desa dan dari Bawah untuk Pertumbuhan Ekonomi, Pemerataan Ekonomi, dan Pemberantasan Kemiskinan"</em>.
+  </p>
+
+  <h3>Tiga Prioritas Utama RPJMN 2025–2029</h3>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-icon">🎯</span>
+      <div class="card-title">Memerangi Kemiskinan</div>
+      <div class="card-text">Fokus pada desa-desa dengan tingkat kemiskinan tinggi dan kemiskinan ekstrem.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">📈</span>
+      <div class="card-title">Akselerasi Ekonomi</div>
+      <div class="card-text">Meningkatkan pertumbuhan ekonomi desa melalui penguatan lembaga ekonomi dan koperasi.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🧠</span>
+      <div class="card-title">Kualitas SDM</div>
+      <div class="card-text">Peningkatan kualitas sumber daya manusia desa melalui pendidikan dan kesehatan.</div>
+    </div>
+  </div>
+
+  <h3>Implikasi bagi RKPDes 2027</h3>
+  <ul>
+    <li>Usulan kegiatan harus mendukung <strong>penguatan ekonomi desa</strong>, bukan hanya infrastruktur fisik.</li>
+    <li>Program <strong>ketahanan pangan</strong>, <strong>digitalisasi desa</strong>, dan <strong>pengembangan koperasi desa</strong> menjadi prioritas.</li>
+    <li>Data <strong>SDGs Desa</strong> dan <strong>Indeks Desa</strong> menjadi instrumen penting untuk mengukur capaian.</li>
+  </ul>
+</section>
+
+<!-- ============ BAB IV ============ -->
+<section id="bab4">
+  <div class="section-header">
+    <div class="section-number">IV</div>
+    <div class="section-title">
+      <small>Sesuai Permendes 21/2020</small>
+      Alur Lengkap Perencanaan Desa — 8 Tahapan
+    </div>
+  </div>
+
+  <p>
+    Perencanaan desa adalah <strong>proses berjenjang dan berurutan</strong>. Setiap tahapan memiliki dasar hukum dan keluaran yang jelas. Melewatkan satu tahapan berpotensi menimbulkan cacat hukum pada dokumen perencanaan.
+  </p>
+
+  <div class="callout callout-purple">
+    <span class="icon">🟣</span>
+    <div class="content">
+      <strong>Update Penting: Rembuk Stunting dalam Siklus Perencanaan</strong>
+      Berdasarkan <a class="reg-link" href="https://peraturan.bpk.go.id/Details/199685/permendesa-pdtt-no-21-tahun-2020" target="_blank" rel="noopener">Permendes PDTT No. 21 Tahun 2020 ↗</a>, <strong>Rembuk Stunting dilaksanakan oleh RDS (Rembuk Desa Setempat) sebelum Musyawarah Desa</strong> untuk penyusunan perencanaan pembangunan desa tahun berikutnya.
+    </div>
+  </div>
+
+  <div class="flow">
+    <div class="flow-step purple-step">
+      <div class="num purple">0</div>
+      <div class="info">
+        <strong>Rembuk Stunting Tingkat Desa</strong>
+        <small>RDS sebagai penyelenggara • Sebelum Musdes Penyusunan RKP Desa</small>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">
+      <div class="num">1</div>
+      <div class="info">
+        <strong>Musyawarah Desa Penyusunan RKP Desa</strong>
+        <small>BPD sebagai penyelenggara • Paling lambat Juni 2026</small>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">
+      <div class="num">2</div>
+      <div class="info">
+        <strong>Pembentukan Tim Penyusun RKP Desa</strong>
+        <small>Kepala Desa • Min. 7 orang &amp; maks. 11 orang (ganjil) • Min. 30% perempuan</small>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">
+      <div class="num">3</div>
+      <div class="info">
+        <strong>Pencermatan &amp; Penyelarasan Kegiatan dan Pembiayaan</strong>
+        <small>Tim Penyusun • Selaras dengan pagu indikatif</small>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">
+      <div class="num">4</div>
+      <div class="info">
+        <strong>Pencermatan Ulang RPJM Desa</strong>
+        <small>Tim Penyusun • Menjaga kesinambungan jangka menengah</small>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">
+      <div class="num">5</div>
+      <div class="info">
+        <strong>Penyusunan Rancangan RKP Desa &amp; DU-RKP Desa</strong>
+        <small>Tim Penyusun • Lengkap dengan Desain Teknis &amp; RAB</small>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">
+      <div class="num">6</div>
+      <div class="info">
+        <strong>Musrenbang Desa: Pembahasan Rancangan</strong>
+        <small>BPD &amp; Pemerintah Desa • Menetapkan prioritas</small>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">
+      <div class="num">7</div>
+      <div class="info">
+        <strong>Musdes Pengesahan RKP Desa &amp; DU-RKP Desa</strong>
+        <small>BPD &amp; Pemerintah Desa • Ditetapkan dengan Peraturan Desa • Maks. September 2026</small>
+      </div>
+    </div>
+  </div>
+
+  <h3>Detail Tahapan</h3>
+
+  <div class="timeline">
+    <div class="timeline-item purple-step">
+      <span class="tahap-badge purple">Tahap 0 — Rembuk Stunting</span>
+      <h4>Rembuk Stunting Tingkat Desa</h4>
+      <div class="timeline-meta">
+        <div><strong>Pelaksana</strong>RDS (Rembuk Desa Setempat)</div>
+        <div><strong>Waktu</strong>Sebelum Musdes Penyusunan RKP Desa</div>
+        <div><strong>Dasar</strong>Permendes PDTT No. 21/2020</div>
+      </div>
+      <p><strong>Kegiatan:</strong></p>
+      <ul>
+        <li><strong>Pemetaan sosial (pendataan):</strong> Dilakukan bersama KPM dan/atau pegiat stunting di tingkat dusun/lingkungan untuk mengidentifikasi dan mendata sasaran</li>
+        <li><strong>Diskusi Kelompok Terarah (FGD):</strong> Membahas hasil pemetaan sosial dan diagnostik dari sasaran serta kondisi layanan konvergensi pencegahan stunting</li>
+        <li><strong>Penyajian data konvergensi:</strong> Pembacaan data pencegahan dan penanganan stunting oleh KPM</li>
+        <li><strong>Penyusunan Rencana Aksi:</strong> Merumuskan kegiatan konkret seperti PMT, sanitasi layak, dan sosialisasi gizi</li>
+        <li><strong>Penandatanganan Berita Acara:</strong> Mengesahkan prioritas kegiatan pencegahan stunting untuk didanai</li>
+      </ul>
+      <div class="callout callout-purple">
+        <span class="icon">📌</span>
+        <div class="content">
+          <strong>Fungsi Strategis Rembuk Stunting</strong>
+          Hasil Rembuk Stunting menjadi <strong>dasar pembahasan</strong> yang selanjutnya <strong>diintegrasikan sebagai usulan masyarakat</strong> dalam penyusunan RKP Desa serta dokumen perencanaan anggaran (APB Desa).
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="tahap-badge">Tahap 1</span>
+      <h4>Musyawarah Desa Penyusunan RKP Desa</h4>
+      <div class="timeline-meta">
+        <div><strong>Pelaksana</strong>BPD (penyelenggara), Pemerintah Desa, masyarakat</div>
+        <div><strong>Waktu</strong>Paling lambat Juni 2026</div>
+        <div><strong>Keluaran</strong>Data &amp; aspirasi masyarakat</div>
+      </div>
+      <p><strong>Kegiatan:</strong> Mencermati data desa &amp; pembangunan; mencermati ulang RPJM Desa; evaluasi RKP tahun sebelumnya; penyampaian pandangan resmi BPD; menjaring usulan berdasarkan Sistem Informasi Desa.</p>
+      <div class="callout callout-info">
+        <span class="icon">ℹ️</span>
+        <div class="content">Musdes ini adalah <strong>forum penggalian aspirasi</strong>, bukan forum penetapan. Hasil Rembuk Stunting menjadi salah satu bahan utama yang dibahas dalam Musdes ini.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="tahap-badge">Tahap 2</span>
+      <h4>Pembentukan Tim Penyusun RKP Desa</h4>
+      <div class="timeline-meta">
+        <div><strong>Pelaksana</strong>Kepala Desa</div>
+        <div><strong>Dasar</strong>Keputusan Kepala Desa</div>
+        <div><strong>Jumlah</strong>7–11 orang (ganjil)</div>
+      </div>
+      <p><strong>Komposisi:</strong> Pembina (Kepala Desa), Ketua (Sekdes/unsur Pemdes), Sekretaris (Kaur Perencanaan), Anggota (Kaur, Kasi, LPM, KPMD, tokoh masyarakat, tokoh perempuan).</p>
+      <div class="pills">
+        <span class="pill accent">Min. 30% Perempuan</span>
+        <span class="pill">Jumlah Ganjil</span>
+        <span class="pill">SK Kepala Desa</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="tahap-badge">Tahap 3</span>
+      <h4>Pencermatan dan Penyelarasan Kegiatan</h4>
+      <div class="timeline-meta">
+        <div><strong>Pelaksana</strong>Tim Penyusun</div>
+        <div><strong>Tujuan</strong>Selaras dengan pagu indikatif</div>
+      </div>
+      <p><strong>Sumber pembiayaan yang dicermati:</strong> PADes, Dana Desa, ADD, bagi hasil pajak/retribusi, bantuan keuangan provinsi/kabupaten.</p>
+    </div>
+
+    <div class="timeline-item">
+      <span class="tahap-badge">Tahap 4</span>
+      <h4>Pencermatan Ulang RPJM Desa</h4>
+      <div class="timeline-meta">
+        <div><strong>Pelaksana</strong>Tim Penyusun</div>
+        <div><strong>Prinsip</strong>Kegiatan harus sudah tercantum di RPJMDes</div>
+      </div>
+      <div class="callout callout-warning">
+        <span class="icon">⚠️</span>
+        <div class="content">
+          Penting dengan berlakunya UU 3/2024 yang mengubah masa jabatan Kepala Desa menjadi <strong>8 tahun</strong>. Desa harus menyesuaikan RPJM Desa atau melakukan penambahan periode.
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="tahap-badge">Tahap 5</span>
+      <h4>Penyusunan Rancangan RKP Desa &amp; DU-RKP Desa</h4>
+      <div class="timeline-meta">
+        <div><strong>Pelaksana</strong>Tim Penyusun</div>
+        <div><strong>Kelengkapan</strong>Desain Teknis &amp; RAB</div>
+      </div>
+      <p><strong>Kelompok bidang:</strong> Pemerintahan, Pembangunan, Pembinaan Kemasyarakatan, Pemberdayaan Masyarakat, Penanggulangan Bencana.</p>
+      <div class="callout callout-success">
+        <span class="icon">✅</span>
+        <div class="content">
+          Hasil Rembuk Stunting <strong>wajib diintegrasikan</strong> ke dalam rancangan RKP Desa, khususnya pada bidang Pembangunan dan Pemberdayaan Masyarakat.
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="tahap-badge">Tahap 6</span>
+      <h4>Musrenbang Desa: Pembahasan Rancangan</h4>
+      <div class="timeline-meta">
+        <div><strong>Pelaksana</strong>Pemerintah Desa &amp; BPD</div>
+        <div><strong>Peserta</strong>Lembaga desa, tokoh, RT/RW, kader, forum disabilitas</div>
+        <div><strong>Keluaran</strong>RKP Desa disepakati + DU-RKP</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="tahap-badge">Tahap 7</span>
+      <h4>Musdes Pengesahan RKP Desa</h4>
+      <div class="timeline-meta">
+        <div><strong>Pelaksana</strong>BPD &amp; Pemerintah Desa</div>
+        <div><strong>Batas Waktu</strong>Paling lambat September 2026</div>
+        <div><strong>Keluaran</strong>Peraturan Desa tentang RKP Desa 2027</div>
+      </div>
+      <div class="callout callout-success">
+        <span class="icon">✅</span>
+        <div class="content">RKP Desa <strong>wajib ditetapkan dengan Peraturan Desa</strong>, bukan hanya berita acara. Perdes inilah yang menjadi payung hukum APBDes 2027.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BAB IV-A — HINGGA APBDESA ============ -->
+<section id="bab4a">
+  <div class="section-header">
+    <div class="section-number green">IV-A</div>
+    <div class="section-title">
+      <small>Lanjutan Perencanaan</small>
+      Alur Lengkap Hingga Terbentuknya APBDesa 2027
+    </div>
+  </div>
+
+  <p>
+    Setelah RKP Desa ditetapkan dengan Peraturan Desa, siklus <strong>tidak berhenti</strong>. Dokumen RKP Desa menjadi dasar hukum dan acuan teknis untuk menyusun <strong>Anggaran Pendapatan dan Belanja Desa (APBDesa)</strong>. Proses ini mengikuti ketentuan <a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">Permendagri No. 20 Tahun 2018 tentang Pengelolaan Keuangan Desa ↗</a>.
+  </p>
+
+  <div class="callout callout-info">
+    <span class="icon">📘</span>
+    <div class="content">
+      <strong>Dasar Hukum Utama Alur APBDesa</strong>
+      <ul style="margin-top: 8px; margin-bottom: 0;">
+        <li><a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">Permendagri No. 20 Tahun 2018 ↗</a> — Pasal 31–38: mekanisme penyusunan APBDesa. <strong>Mencabut Permendagri 113/2014; Mengubah Permendagri 114/2014</strong>.</li>
+        <li><a class="reg-link" href="https://peraturan.bpk.go.id/Details/199685/permendesa-pdtt-no-21-tahun-2020" target="_blank" rel="noopener">Permendes PDTT No. 21 Tahun 2020 ↗</a> — Pasal 34: alur RKP Desa sebagai dasar APBDesa</li>
+        <li><a class="reg-link" href="https://peraturan.bpk.go.id/Details/349409/pp-no-16-tahun-2026" target="_blank" rel="noopener">PP No. 16 Tahun 2026 ↗</a> — Pasal 142: keterkaitan perencanaan dan penganggaran</li>
+        <li><a class="reg-link" href="https://peraturan.bpk.go.id/Details/283617/uu-no-3-" target="_blank" rel="noopener">UU No. 3 Tahun 2024 ↗</a> — Dasar kewenangan desa menetapkan APBDesa melalui Peraturan Desa</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-success">
+    <span class="icon">📥</span>
+    <div class="content">
+      <strong>Template &amp; Format Kelengkapan</strong>
+      Seluruh format dokumen yang dibutuhkan dalam alur perencanaan hingga APBDesa — mulai dari Berita Acara Rembuk Stunting, Format RKP Desa, DU-RKP, hingga Rancangan APBDesa — dapat diunduh melalui tautan berikut:
+      <a href="https://drive.google.com/drive/folders/16ZzB_1lQEYmye-2dtdIUcjRLwrRTixEA?usp=sharing" target="_blank" rel="noopener" class="reg-link" style="font-weight:800; color: var(--success);"> ⬇️ SILAHKAN DOWNLOAD KELENGKAPAN ↗</a>
+    </div>
+  </div>
+
+  <h3>Delapan Tahapan dari RKP Desa ke APBDesa</h3>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="num">1</div>
+      <div class="info">
+        <strong>Sekretaris Desa Menyusun Rancangan APBDesa</strong>
+        <small>Berdasarkan RKP Desa yang telah ditetapkan • September–Oktober 2026</small>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">
+      <div class="num">2</div>
+      <div class="info">
+        <strong>Penyampaian Rancangan APBDesa kepada BPD</strong>
+        <small>Kepala Desa menyampaikan kepada BPD • Paling lambat Oktober 2026</small>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">
+      <div class="num">3</div>
+      <div class="info">
+        <strong>Pembahasan dan Kesepakatan Bersama BPD</strong>
+        <small>Kepala Desa dan BPD • Paling lambat Oktober 2026</small>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">
+      <div class="num">4</div>
+      <div class="info">
+        <strong>Penyampaian kepada Camat untuk Evaluasi</strong>
+        <small>Paling lambat 3 hari sejak disepakati</small>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">
+      <div class="num">5</div>
+      <div class="info">
+        <strong>Evaluasi Raperdes APBDesa oleh Camat</strong>
+        <small>Paling lama 20 hari kerja sejak diterima</small>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">
+      <div class="num">6</div>
+      <div class="info">
+        <strong>Penyempurnaan (Jika Diperlukan)</strong>
+        <small>Kepala Desa bersama BPD • Paling lama 7–20 hari kerja</small>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">
+      <div class="num">7</div>
+      <div class="info">
+        <strong>Penetapan Peraturan Desa tentang APBDesa</strong>
+        <small>Paling lambat 31 Desember 2026</small>
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+    <div class="flow-step">
+      <div class="num">8</div>
+      <div class="info">
+        <strong>Pengundangan dalam Lembaran Desa</strong>
+        <small>Sekretaris Desa mengundangkan dalam Lembaran Desa</small>
+      </div>
+    </div>
+  </div>
+
+  <h3>Uraian Detail Setiap Tahapan</h3>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <span class="tahap-badge">Tahap 1</span>
+      <h4>Penyusunan Rancangan APBDesa oleh Sekretaris Desa</h4>
+      <div class="timeline-meta">
+        <div><strong>Pelaksana</strong>Sekretaris Desa (koordinator PPKD)</div>
+        <div><strong>Waktu</strong>September–Oktober 2026</div>
+        <div><strong>Dasar</strong>Permendagri 20/2018 Pasal 31 ayat (2)</div>
+      </div>
+      <p>
+        Berdasarkan <a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">Permendagri No. 20 Tahun 2018 Pasal 31 ayat (2) ↗</a>, Sekretaris Desa mengoordinasikan penyusunan Rancangan APBDesa berdasarkan <strong>RKP Desa tahun berkenaan</strong> dan <strong>pedoman penyusunan APBDesa</strong> yang ditetapkan dengan Peraturan Bupati/Wali Kota setiap tahun.
+      </p>
+      <p><strong>Isi Rancangan APBDesa:</strong></p>
+      <ul>
+        <li>Rencana pendapatan desa (PADes, Dana Desa, ADD, bagi hasil pajak/retribusi, bantuan keuangan)</li>
+        <li>Rencana belanja desa (bidang penyelenggaraan pemerintahan, pembangunan, pembinaan kemasyarakatan, pemberdayaan masyarakat, penanggulangan bencana)</li>
+        <li>Pembiayaan desa (penerimaan dan pengeluaran pembiayaan)</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <span class="tahap-badge">Tahap 2</span>
+      <h4>Penyampaian Rancangan APBDesa kepada BPD</h4>
+      <div class="timeline-meta">
+        <div><strong>Pelaksana</strong>Sekretaris Desa → Kepala Desa → BPD</div>
+        <div><strong>Waktu</strong>Paling lambat Oktober 2026</div>
+        <div><strong>Dasar</strong>Permendagri 20/2018 Pasal 32 ayat (1) dan (2)</div>
+      </div>
+      <p>
+        Sekretaris Desa menyampaikan Rancangan Peraturan Desa tentang APBDesa kepada Kepala Desa. Selanjutnya, Kepala Desa menyampaikan rancangan tersebut kepada <strong>Badan Permusyawaratan Desa (BPD)</strong> untuk dibahas dan disepakati bersama dalam musyawarah BPD.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <span class="tahap-badge">Tahap 3</span>
+      <h4>Pembahasan dan Kesepakatan Bersama BPD</h4>
+      <div class="timeline-meta">
+        <div><strong>Pelaksana</strong>Kepala Desa dan BPD</div>
+        <div><strong>Waktu</strong>Paling lambat Oktober 2026</div>
+        <div><strong>Dasar</strong>Permendagri 20/2018 Pasal 32 ayat (3)</div>
+      </div>
+      <p>
+        Rancangan Peraturan Desa tentang APBDesa <strong>disepakati bersama paling lambat bulan Oktober tahun berjalan</strong>. Kesepakatan dituangkan dalam <strong>Berita Acara Kesepakatan</strong> yang ditandatangani oleh Kepala Desa dan BPD.
+      </p>
+      <div class="callout callout-info">
+        <span class="icon">ℹ️</span>
+        <div class="content">
+          Dalam hal BPD tidak menyepakati rancangan APBDesa, Pemerintah Desa hanya dapat melakukan kegiatan yang berkenaan dengan <strong>pengeluaran operasional penyelenggaraan pemerintahan Desa</strong> dengan menggunakan pagu tahun sebelumnya.
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="tahap-badge">Tahap 4</span>
+      <h4>Penyampaian kepada Camat untuk Evaluasi</h4>
+      <div class="timeline-meta">
+        <div><strong>Pelaksana</strong>Kepala Desa → Camat</div>
+        <div><strong>Waktu</strong>Paling lambat 3 hari sejak disepakati</div>
+        <div><strong>Dasar</strong>Permendagri 20/2018 Pasal 34 ayat (1)</div>
+      </div>
+      <p>
+        Rancangan Peraturan Desa tentang APBDesa yang telah disepakati bersama BPD disampaikan oleh Kepala Desa kepada <strong>Camat</strong> (atau Bupati melalui Camat) paling lambat <strong>3 (tiga) hari</strong> sejak disepakati untuk dievaluasi.
+      </p>
+      <p><strong>Dokumen yang wajib dilampirkan:</strong></p>
+      <ol>
+        <li>Surat Pengantar</li>
+        <li>Rancangan Peraturan Kepala Desa tentang Penjabaran APBDesa</li>
+        <li>Peraturan Desa tentang RKP Desa tahun berkenaan</li>
+        <li>Peraturan Desa tentang Kewenangan Desa berdasarkan Hak Asal Usul dan Kewenangan Lokal Berskala Desa (jika sudah ditetapkan)</li>
+        <li>Peraturan Desa tentang Pembentukan Dana Cadangan (jika tersedia)</li>
+        <li>Peraturan Desa tentang Penyertaan Modal (jika tersedia)</li>
+        <li>Berita Acara Hasil Musyawarah BPD</li>
+      </ol>
+    </div>
+
+    <div class="timeline-item">
+      <span class="tahap-badge">Tahap 5</span>
+      <h4>Evaluasi Raperdes APBDesa oleh Camat</h4>
+      <div class="timeline-meta">
+        <div><strong>Pelaksana</strong>Camat (delegasi dari Bupati/Wali Kota)</div>
+        <div><strong>Waktu</strong>Paling lama 20 hari kerja sejak diterima</div>
+        <div><strong>Dasar</strong>Permendagri 20/2018 Pasal 37</div>
+      </div>
+      <p>
+        Camat melakukan evaluasi terhadap Rancangan Peraturan Desa tentang APBDesa. Hasil evaluasi dituangkan dalam <strong>Keputusan Camat tentang Hasil Evaluasi APBDesa</strong> dan disampaikan kepada Kepala Desa paling lama <strong>20 (dua puluh) hari kerja</strong> terhitung sejak diterimanya rancangan APBDesa.
+      </p>
+      <div class="callout callout-warning">
+        <span class="icon">⚠️</span>
+        <div class="content">
+          <strong>Jika Camat tidak memberikan hasil evaluasi dalam batas waktu 20 hari kerja</strong>, maka Peraturan Desa tentang APBDesa tersebut <strong>berlaku dengan sendirinya</strong> setelah ditetapkan dan diundangkan dalam Lembaran Desa.
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="tahap-badge">Tahap 6</span>
+      <h4>Penyempurnaan APBDesa (Jika Diperlukan)</h4>
+      <div class="timeline-meta">
+        <div><strong>Pelaksana</strong>Kepala Desa bersama BPD</div>
+        <div><strong>Waktu</strong>Paling lama 7–20 hari kerja sejak hasil evaluasi diterima</div>
+        <div><strong>Dasar</strong>Permendagri 20/2018 Pasal 35</div>
+      </div>
+      <p>
+        Dalam hal hasil evaluasi menyatakan bahwa Rancangan Peraturan Desa tentang APBDesa <strong>tidak sesuai</strong> dengan ketentuan peraturan perundang-undangan yang lebih tinggi, kepentingan umum, dan/atau RKP Desa, Kepala Desa bersama BPD melakukan penyempurnaan paling lama <strong>20 (dua puluh) hari kerja</strong> terhitung sejak diterimanya hasil evaluasi.
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <span class="tahap-badge">Tahap 7</span>
+      <h4>Penetapan Peraturan Desa tentang APBDesa</h4>
+      <div class="timeline-meta">
+        <div><strong>Pelaksana</strong>Kepala Desa</div>
+        <div><strong>Waktu</strong>Paling lambat 31 Desember 2026</div>
+        <div><strong>Dasar</strong>Permendagri 20/2018 Pasal 38 ayat (2)</div>
+      </div>
+      <p>
+        Rancangan Peraturan Desa tentang APBDesa yang telah dievaluasi ditetapkan oleh Kepala Desa menjadi <strong>Peraturan Desa tentang APBDesa</strong>. Peraturan Desa tentang APBDesa ditetapkan paling lambat <strong>tanggal 31 Desember tahun anggaran sebelumnya</strong> (untuk APBDesa 2027: paling lambat 31 Desember 2026).
+      </p>
+      <p>
+        Kepala Desa juga menetapkan <strong>Rancangan Peraturan Kepala Desa tentang Penjabaran APBDesa</strong> sebagai peraturan pelaksana dari Peraturan Desa tentang APBDesa.
+      </p>
+      <div class="callout callout-success">
+        <span class="icon">✅</span>
+        <div class="content">
+          <strong>Konsekuensi Hukum:</strong> Setelah APBDesa ditetapkan dan diundangkan, APBDesa menjadi <strong>dasar hukum pelaksanaan pembangunan desa</strong> untuk tahun anggaran 2027.
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="tahap-badge">Tahap 8</span>
+      <h4>Pengundangan dalam Lembaran Desa</h4>
+      <div class="timeline-meta">
+        <div><strong>Pelaksana</strong>Sekretaris Desa</div>
+        <div><strong>Waktu</strong>Setelah penetapan</div>
+        <div><strong>Dasar</strong>Permendagri 20/2018</div>
+      </div>
+      <p>
+        Peraturan Desa tentang APBDesa yang telah ditandatangani oleh Kepala Desa diberikan nomor urut oleh Sekretaris Desa dan <strong>diundangkan dalam Lembaran Desa</strong>. Peraturan Desa dinyatakan mulai berlaku dan mempunyai kekuatan hukum yang mengikat sejak tanggal diundangkan dalam Lembaran Desa.
+      </p>
+    </div>
+  </div>
+
+  <h3>Tabel Jadwal Lengkap: RKPDes hingga APBDesa 2027</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Bulan</th>
+          <th>Tahapan</th>
+          <th>Pelaksana</th>
+          <th>Dasar Hukum</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Mei–Juni 2026</strong></td>
+          <td>Rembuk Stunting Tingkat Desa</td>
+          <td>RDS (Rembuk Desa Setempat)</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/199685/permendesa-pdtt-no-21-tahun-2020" target="_blank" rel="noopener">Permendes 21/2020</a></td>
+        </tr>
+        <tr>
+          <td><strong>Juni 2026</strong></td>
+          <td>Musdes Penyusunan RKP Desa</td>
+          <td>BPD</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/199685/permendesa-pdtt-no-21-tahun-2020" target="_blank" rel="noopener">Permendes 21/2020</a></td>
+        </tr>
+        <tr>
+          <td><strong>Juli–Agustus 2026</strong></td>
+          <td>Penyusunan RKP Desa oleh Tim Penyusun</td>
+          <td>Tim Penyusun RKPDes</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/199685/permendesa-pdtt-no-21-tahun-2020" target="_blank" rel="noopener">Permendes 21/2020</a></td>
+        </tr>
+        <tr>
+          <td><strong>September 2026</strong></td>
+          <td>Penetapan RKP Desa dengan Perdes</td>
+          <td>BPD &amp; Pemerintah Desa</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/199685/permendesa-pdtt-no-21-tahun-2020" target="_blank" rel="noopener">Permendes 21/2020</a></td>
+        </tr>
+        <tr>
+          <td><strong>September–Oktober 2026</strong></td>
+          <td>Sekretaris Desa menyusun Rancangan APBDesa</td>
+          <td>Sekretaris Desa</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">Permendagri 20/2018 Pasal 31</a></td>
+        </tr>
+        <tr>
+          <td><strong>Oktober 2026</strong></td>
+          <td>Penyampaian Raperdes APBDesa kepada BPD</td>
+          <td>Kepala Desa</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">Permendagri 20/2018 Pasal 32</a></td>
+        </tr>
+        <tr>
+          <td><strong>Oktober 2026</strong></td>
+          <td>Pembahasan dan kesepakatan bersama BPD</td>
+          <td>Kepala Desa &amp; BPD</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">Permendagri 20/2018 Pasal 32</a></td>
+        </tr>
+        <tr>
+          <td><strong>Oktober 2026</strong></td>
+          <td>Penyampaian kepada Camat (maks. 3 hari setelah disepakati)</td>
+          <td>Kepala Desa</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">Permendagri 20/2018 Pasal 34</a></td>
+        </tr>
+        <tr>
+          <td><strong>Oktober–November 2026</strong></td>
+          <td>Evaluasi oleh Camat (maks. 20 hari kerja)</td>
+          <td>Camat</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">Permendagri 20/2018 Pasal 37</a></td>
+        </tr>
+        <tr>
+          <td><strong>November 2026</strong></td>
+          <td>Penyempurnaan APBDesa (jika diperlukan)</td>
+          <td>Kepala Desa &amp; BPD</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">Permendagri 20/2018 Pasal 35</a></td>
+        </tr>
+        <tr>
+          <td><strong>Desember 2026</strong></td>
+          <td>Penetapan Perdes tentang APBDesa</td>
+          <td>Kepala Desa</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">Permendagri 20/2018 Pasal 38</a></td>
+        </tr>
+        <tr>
+          <td><strong>Paling lambat 31 Des 2026</strong></td>
+          <td>Batas akhir penetapan APBDesa</td>
+          <td>Kepala Desa</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">Permendagri 20/2018 Pasal 38 ayat (2)</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Keterkaitan Rembuk Stunting dengan APBDesa</h3>
+
+  <div class="callout callout-purple">
+    <span class="icon">🟣</span>
+    <div class="content">
+      <strong>Integrasi Rembuk Stunting dalam APBDesa</strong>
+      Hasil Rembuk Stunting yang telah diintegrasikan ke dalam RKP Desa <strong>wajib tercermin dalam APBDesa</strong>. Kegiatan pencegahan stunting — seperti PMT, sanitasi layak, dan sosialisasi gizi — dianggarkan pada <strong>Bidang Pemberdayaan Masyarakat</strong> dan/atau <strong>Bidang Pembangunan</strong> dengan sumber <strong>Dana Desa pada Fokus ke-3 (Peningkatan Layanan Dasar Kesehatan Skala Desa)</strong> sesuai <a class="reg-link" href="https://peraturan.bpk.go.id/Details/343678/permendesa-pdt-kemendesa-pdt-no-16-tahun-2025" target="_blank" rel="noopener">Permendes PDT No. 16 Tahun 2025 ↗</a>.
+    </div>
+  </div>
+
+  <h3>Jika APBDesa Tidak Ditetapkan Tepat Waktu</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Situasi</th>
+          <th>Konsekuensi</th>
+          <th>Dasar Hukum</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>BPD tidak menyepakati Raperdes APBDesa</td>
+          <td>Pemerintah Desa hanya dapat melakukan pengeluaran operasional pemerintahan desa dengan pagu tahun sebelumnya</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">Permendagri 20/2018 Pasal 32</a></td>
+        </tr>
+        <tr>
+          <td>Camat tidak memberikan hasil evaluasi dalam 20 hari kerja</td>
+          <td>Peraturan Desa tentang APBDesa berlaku dengan sendirinya setelah ditetapkan dan diundangkan</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">Permendagri 20/2018 Pasal 37 ayat (4)</a></td>
+        </tr>
+        <tr>
+          <td>Hasil evaluasi tidak ditindaklanjuti oleh Kepala Desa</td>
+          <td>Bupati membatalkan Peraturan Desa dengan Keputusan Bupati; berlaku pagu APBDesa tahun sebelumnya</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">Permendagri 20/2018 Pasal 36 ayat (1)</a></td>
+        </tr>
+        <tr>
+          <td>APBDesa tidak ditetapkan hingga 31 Desember</td>
+          <td>Desa tidak memiliki dasar hukum penganggaran; kegiatan tidak dapat dilaksanakan; Dana Desa tidak dapat dicairkan</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">Permendagri 20/2018 Pasal 38 ayat (2)</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-danger">
+    <span class="icon">🚫</span>
+    <div class="content">
+      <strong>Peringatan Kritis untuk Kepala Desa dan Perangkat</strong>
+      Keterlambatan penetapan APBDesa hingga melewati 31 Desember mengakibatkan desa <strong>tidak memiliki dasar hukum untuk melakukan pengeluaran</strong>. Ini berdampak pada:
+      <ul style="margin-top: 8px; margin-bottom: 0;">
+        <li><strong>Penundaan penyaluran Dana Desa</strong> dari Rekening Kas Umum Negara/Daerah;</li>
+        <li><strong>Sanksi pemotongan pagu</strong> SILTAP Kepala Desa dan Perangkat;</li>
+        <li><strong>Tidak dapat memulai kegiatan pembangunan</strong> pada awal tahun anggaran;</li>
+        <li><strong>Potensi temuan audit</strong> dari BPK/Inspektorat atas pengeluaran tanpa dasar anggaran.
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BAB V ============ -->
+<section id="bab5">
+  <div class="section-header">
+    <div class="section-number">V</div>
+    <div class="section-title">
+      <small>Tata Kelola</small>
+      Peran dan Tanggung Jawab Pemangku Kepentingan
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-icon">🏛️</span>
+      <div class="card-title">BPD</div>
+      <div class="card-text">Menyelenggarakan Musdes, memimpin pembahasan, memastikan partisipasi, dan menetapkan Perdes.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">👤</span>
+      <div class="card-title">Kepala Desa &amp; Perangkat</div>
+      <div class="card-text">Menyusun rancangan RKPDes, menyediakan data, dan melaksanakan hasil musyawarah.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">📝</span>
+      <div class="card-title">Tim Penyusun RKPDes</div>
+      <div class="card-text">Melakukan pencermatan ulang RPJMDes, menyusun draf, dan verifikasi data. Mengintegrasikan hasil Rembuk Stunting.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🤝</span>
+      <div class="card-title">Pendamping Desa</div>
+      <div class="card-text">Memfasilitasi, memberikan bimbingan teknis, dan memastikan kepatuhan regulasi.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">👥</span>
+      <div class="card-title">Masyarakat</div>
+      <div class="card-text">Menyampaikan usulan melalui dusun/RT, mengawasi pelaksanaan, dan memastikan transparansi.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🟣</span>
+      <div class="card-title">RDS (Rembuk Desa Setempat)</div>
+      <div class="card-text">Menyelenggarakan Rembuk Stunting, melakukan pemetaan sosial, dan memfasilitasi FGD konvergensi pencegahan stunting.</div>
+    </div>
+  </div>
+
+  <div class="callout callout-success">
+    <span class="icon">🔑</span>
+    <div class="content">
+      <strong>Pesan Kunci Narasumber</strong>
+      Kepala Desa harus <strong>selaras dan satu pemikiran</strong> dengan pihak eksternal (Babinsa, Bhabinkamtibmas) dan internal (Sekdes, Bendahara). Transparansi anggaran adalah kunci membangun kepercayaan masyarakat.
+    </div>
+  </div>
+</section>
+
+<!-- ============ BAB VI ============ -->
+<section id="bab6">
+  <div class="section-header">
+    <div class="section-number">VI</div>
+    <div class="section-title">
+      <small>Regulasi Terbaru</small>
+      Peraturan tentang Dana Desa
+    </div>
+  </div>
+
+  <h3>Regulasi Terkini yang Wajib Dipahami</h3>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-icon">💰</span>
+      <div class="card-title">
+        <a class="reg-link" href="https://peraturan.bpk.go.id/Details/339757/pmk-no-7-tahun-2026" target="_blank" rel="noopener">PMK No. 7 Tahun 2026 ↗</a>
+      </div>
+      <div class="card-text">Pengelolaan Dana Desa TA 2026. Pagu: <strong>Rp60,57 triliun</strong>. Komposisi: Alokasi Dasar 65%, Afirmasi 1%, Kinerja 4%, Formula 30%.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">📋</span>
+      <div class="card-title">
+        <a class="reg-link" href="https://peraturan.bpk.go.id/Details/343678/permendesa-pdt-kemendesa-pdt-no-16-tahun-2025" target="_blank" rel="noopener">Permendes PDT No. 16 Tahun 2025 ↗</a>
+      </div>
+      <div class="card-text">Petunjuk Operasional Fokus Penggunaan Dana Desa 2026. Ditetapkan <strong>29 Desember 2025</strong>.</div>
+    </div>
+  </div>
+
+  <h3>Delapan Fokus Penggunaan Dana Desa</h3>
+
+  <ol class="num-list">
+    <li><strong>Penanganan Kemiskinan Ekstrem</strong> melalui BLT Desa</li>
+    <li><strong>Penguatan Ketahanan Iklim dan Tanggap Bencana</strong></li>
+    <li><strong>Peningkatan Layanan Dasar Kesehatan Skala Desa</strong></li>
+    <li><strong>Program Ketahanan Pangan/Lumbung Pangan dan Energi</strong></li>
+    <li><strong>Dukungan Implementasi Koperasi Desa Merah Putih (KDMP)</strong></li>
+    <li><strong>Pembangunan dan Pemeliharaan Infrastruktur</strong> melalui PKTD</li>
+    <li><strong>Pembangunan Infrastruktur Digital dan Teknologi</strong></li>
+    <li><strong>Program Sektor Prioritas Lain</strong> hasil musyawarah desa</li>
+  </ol>
+
+  <div class="callout callout-purple">
+    <span class="icon">🔗</span>
+    <div class="content">
+      <strong>Keterkaitan Rembuk Stunting dengan Fokus Dana Desa</strong>
+      Fokus ke-3 (<strong>Peningkatan Layanan Dasar Kesehatan Skala Desa</strong>) secara langsung bersinggungan dengan program pencegahan stunting. Hasil Rembuk Stunting harus dialokasikan dalam APBDesa dengan sumber Dana Desa pada fokus ini.
+    </div>
+  </div>
+
+  <h3>Ketentuan BLT Desa dan DOP</h3>
+
+  <div class="stat-grid">
+    <div class="stat-card accent">
+      <div class="stat-value">Rp300.000</div>
+      <div class="stat-label">BLT per KPM per bulan</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">Maks. 3%</div>
+      <div class="stat-label">DOP dari pagu Dana Desa</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">3 Bulan</div>
+      <div class="stat-label">Maks. pencairan BLT sekaligus</div>
+    </div>
+  </div>
+
+  <h3>Larangan Penggunaan Dana Desa</h3>
+
+  <div class="callout callout-danger">
+    <span class="icon">🚫</span>
+    <div class="content">
+      <strong>Enam Larangan Wajib Dipatuhi</strong>
+      <ol style="margin-top: 8px; margin-bottom: 0;">
+        <li>Pembayaran honorarium Kades, perangkat desa, dan/atau anggota BPD</li>
+        <li>Perjalanan dinas Kades, perangkat desa, dan/atau BPD ke luar kabupaten/kota</li>
+        <li>Iuran jaminan sosial kesehatan/ketenagakerjaan bagi Kades, perangkat, dan BPD</li>
+        <li>Pembangunan kantor/balai desa (kecuali rehabilitasi maks. Rp25 juta)</li>
+        <li>Bantuan hukum untuk kepentingan pribadi</li>
+        <li>Kegiatan yang mengancam keamanan dan kedaulatan negara</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3>Sanksi atas Ketidakpatuhan</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Pelanggaran</th><th>Sanksi</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Tidak mempublikasikan fokus penggunaan Dana Desa</td>
+          <td>Tidak berwenang mengalokasikan DOP 3% pada tahun anggaran berikutnya</td>
+        </tr>
+        <tr>
+          <td>Tidak menyampaikan APBDes sampai 30 April</td>
+          <td>Pemotongan pagu SILTAP Kepala Desa dan Perangkat</td>
+        </tr>
+        <tr>
+          <td>Penyalahgunaan Dana Desa</td>
+          <td>Penghentian penyaluran Dana Desa oleh Menteri Keuangan</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Proyeksi Dana Desa 2027</h3>
+
+  <div class="stat-grid">
+    <div class="stat-card accent">
+      <div class="stat-value">Rp77 T</div>
+      <div class="stat-label">Alokasi Dana Desa 2027</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">+39,3%</div>
+      <div class="stat-label">Kenaikan dari outlook 2026</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">Rp21,71 T</div>
+      <div class="stat-label">Selisih kenaikan</div>
+    </div>
+  </div>
+
+  <h4>Lima Kebijakan Prioritas Dana Desa 2027</h4>
+  <ol class="num-list">
+    <li>Mendukung pembangunan berkelanjutan: kemiskinan ekstrem, kesehatan, ketahanan pangan, iklim, lembaga ekonomi, infrastruktur, digitalisasi</li>
+    <li>Mendukung operasional pemerintah desa, maksimal <strong>3% di luar penggunaan Koperasi Desa</strong></li>
+    <li>Mendukung keberlanjutan implementasi <strong>Koperasi Desa/Kelurahan Merah Putih (KDMP)</strong></li>
+    <li>Perbaikan tata kelola, interoperabilitas sistem, pemantauan, evaluasi, dan akuntabilitas</li>
+    <li>Penguatan sinergi dengan instrumen pendanaan lain</li>
+  </ol>
+
+  <div class="callout callout-warning">
+    <span class="icon">⚠️</span>
+    <div class="content">
+      <strong>Tantangan yang Perlu Diantisipasi</strong>
+      Sebagian besar tambahan Dana Desa akan digunakan untuk memenuhi <strong>kewajiban cicilan pembiayaan KDMP</strong>. Ekonom CORE Indonesia menilai terdapat pokok pinjaman sekitar <strong>Rp40 triliun per tahun selama enam tahun</strong>.
+    </div>
+  </div>
+</section>
+
+<!-- ============ BAB VII ============ -->
+<section id="bab7">
+  <div class="section-header">
+    <div class="section-number">VII</div>
+    <div class="section-title">
+      <small>Analisis</small>
+      Isu Strategis dan Rekomendasi RKPDes 2027
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <span class="card-icon">📊</span>
+      <div class="card-title">Perencanaan Berbasis Data</div>
+      <div class="card-text">PP 16/2026 menekankan perencanaan berbasis data desa, integrasi lintas level, dan sistem informasi desa terintegrasi. Gunakan data SDGs Desa, Indeks Desa, dan data stunting/Posyandu.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🟣</span>
+      <div class="card-title">Integrasi Rembuk Stunting</div>
+      <div class="card-text">Hasil Rembuk Stunting wajib diintegrasikan ke dalam RKPDes pada bidang Pembangunan dan Pemberdayaan Masyarakat. Rembuk Stunting dilaksanakan <strong>sebelum Musdes</strong>.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🤝</span>
+      <div class="card-title">Sinergi KDMP</div>
+      <div class="card-text">Pembiayaan Koperasi Desa Merah Putih tidak lagi dianggarkan melalui APBDes. Desa harus menyesuaikan perencanaan.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🏗️</span>
+      <div class="card-title">Infrastruktur Ekonomi</div>
+      <div class="card-text">Prioritas pada infrastruktur penunjang ekonomi (jalan usaha tani, irigasi, pasar desa) dan digitalisasi desa.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🔍</span>
+      <div class="card-title">Akuntabilitas</div>
+      <div class="card-text">Setiap usulan harus memiliki desain teknis, RAB, dan pelaksana yang jelas. Keterbukaan informasi adalah kewajiban.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🔗</span>
+      <div class="card-title">Keterkaitan Lintas Level</div>
+      <div class="card-text">Vertikal ke RPJMN/RPJMD, horisontal antar-desa, dan berbasis data SDGs/Indeks Desa.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BAB VIII ============ -->
+<section id="bab8">
+  <div class="section-header">
+    <div class="section-number">VIII</div>
+    <div class="section-title">
+      <small>Pencegahan</small>
+      Kesalahan Umum dan Cara Menghindarinya
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Kesalahan</th><th>Konsekuensi</th><th>Koreksi</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Tidak melibatkan BPD sebagai penyelenggara Musdes</td>
+          <td>Cacat prosedur, dokumen berpotensi dibatalkan</td>
+          <td>BPD wajib menyelenggarakan Musdes</td>
+        </tr>
+        <tr>
+          <td>Tim Penyusun &lt;7 orang atau tanpa keterwakilan perempuan 30%</td>
+          <td>Tidak memenuhi syarat normatif</td>
+          <td>Penuhi komposisi minimal</td>
+        </tr>
+        <tr>
+          <td>RKP Desa tidak ditetapkan dengan Peraturan Desa</td>
+          <td>APBDes tidak memiliki dasar hukum yang sah</td>
+          <td>Tetapkan melalui Perdes</td>
+        </tr>
+        <tr>
+          <td><strong>Tidak melaksanakan Rembuk Stunting sebelum Musdes</strong></td>
+          <td>Usulan pencegahan stunting tidak terakomodasi dalam RKPDes; program gizi dan kesehatan tidak terdanai</td>
+          <td>Laksanakan Rembuk Stunting sebelum Musdes; integrasikan hasilnya ke RKPDes</td>
+        </tr>
+        <tr>
+          <td>Melewati tahap pencermatan ulang RPJM Desa</td>
+          <td>Kegiatan tidak terhubung dengan RPJM Desa</td>
+          <td>Lakukan pencermatan &amp; dokumentasikan</td>
+        </tr>
+        <tr>
+          <td>RKP Desa ditetapkan setelah September</td>
+          <td>APBDes terlambat, penyaluran Dana Desa tertunda</td>
+          <td>Selesaikan paling lambat September</td>
+        </tr>
+        <tr>
+          <td>Tidak menyelaraskan dengan pagu indikatif</td>
+          <td>Kegiatan tidak realistis dan tidak dapat dibiayai</td>
+          <td>Cermati pagu indikatif dari kabupaten</td>
+        </tr>
+        <tr>
+          <td><strong>APBDesa tidak ditetapkan hingga 31 Desember</strong></td>
+          <td>Tidak ada dasar hukum pengeluaran; Dana Desa tidak dapat dicairkan</td>
+          <td>Tetapkan APBDesa paling lambat 31 Desember</td>
+        </tr>
+        <tr>
+          <td>Tidak mempublikasikan fokus penggunaan Dana Desa</td>
+          <td>Kehilangan kewenangan mengalokasikan DOP 3%</td>
+          <td>Publikasikan segera setelah APBDes ditetapkan</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ BAB IX ============ -->
+<section id="bab9">
+  <div class="section-header">
+    <div class="section-number">IX</div>
+    <div class="section-title">
+      <small>Penutup</small>
+      Rekomendasi Praktis
+    </div>
+  </div>
+
+  <h3>Untuk Narasumber</h3>
+  <ol class="num-list">
+    <li>Bawalah salinan <a class="reg-link" href="https://peraturan.bpk.go.id/Details/349409/pp-no-16-tahun-2026" target="_blank" rel="noopener">PP 16/2026 ↗</a>, <a class="reg-link" href="https://peraturan.bpk.go.id/Details/199685/permendesa-pdtt-no-21-tahun-2020" target="_blank" rel="noopener">Permendes 21/2020 ↗</a>, dan <a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">Permendagri 20/2018 ↗</a> sebagai rujukan resmi</li>
+    <li>Tegaskan bahwa <a class="reg-link" href="https://peraturan.bpk.go.id/Details/111737/" target="_blank" rel="noopener">Permendagri 114/2014 ↗</a> sudah tidak menjadi acuan utama seiring berlakunya PP 16/2026</li>
+    <li>Dorong desa untuk tidak terjebak pada rutinitas administratif, fokus pada kualitas perencanaan dan dampak nyata</li>
+    <li>Ingatkan bahwa <strong>Rembuk Stunting wajib dilaksanakan sebelum Musdes</strong> penyusunan RKP Desa</li>
+    <li>Tekankan <strong>batas waktu kritis</strong>: Rembuk Stunting (Mei–Juni), Musdes (Juni), RKP Desa (September), APBDesa (31 Desember)</li>
+    <li>Ingatkan bahwa <strong>Musdes dan Musrenbangdes adalah dua forum berbeda</strong></li>
+    <li>Dorong dokumentasi setiap tahapan: berita acara, daftar hadir, notulen, dan foto</li>
+    <li>Hubungkan alur perencanaan dengan Dana Desa: <strong>8 fokus penggunaan Dana Desa harus tercermin dalam RKP Desa</strong></li>
+    <li>Jelaskan alur <strong>hingga APBDesa ditetapkan</strong> agar desa memahami konsekuensi keterlambatan</li>
+    <li>Arahkan peserta untuk mengunduh <strong>template kelengkapan</strong> melalui tautan yang tersedia</li>
+  </ol>
+
+  <h3>Untuk Desa</h3>
+  <ol class="num-list">
+    <li>Segera laksanakan <strong>Rembuk Stunting</strong> sebelum Musdes penyusunan RKPDes 2027</li>
+    <li>Bentuk <strong>Tim Penyusun RKPDes 2027</strong> jika belum terbentuk</li>
+    <li>Lakukan <strong>pencermatan ulang RPJMDes</strong> untuk memastikan keselarasan dengan RPJMN 2025–2029</li>
+    <li>Integrasikan <strong>hasil Rembuk Stunting</strong> ke dalam RKPDes</li>
+    <li>Susun <strong>DU-RKP 2027</strong> yang realistis, terukur, dan berbasis data</li>
+    <li>Pastikan <strong>RKPDes ditetapkan paling lambat September 2026</strong></li>
+    <li>Segera susun <strong>Rancangan APBDesa</strong> setelah RKPDes ditetapkan</li>
+    <li>Pastikan <strong>APBDesa ditetapkan paling lambat 31 Desember 2026</strong></li>
+    <li>Manfaatkan <strong>template kelengkapan</strong> yang telah disediakan untuk mempercepat penyusunan dokumen</li>
+  </ol>
+
+  <div class="callout callout-success">
+    <span class="icon">🎯</span>
+    <div class="content">
+      <strong>Kesimpulan</strong>
+      Dengan memahami dan mengimplementasikan kerangka materi ini, narasumber dapat membantu desa menyusun RKPDes dan APBDesa 2027 yang <strong>legal, partisipatif, berbasis data, dan berdampak nyata</strong> bagi kesejahteraan masyarakat desa.
+    </div>
+  </div>
+</section>
+
+<!-- ============ LAMPIRAN ============ -->
+<section id="lampiran">
+  <div class="section-header">
+    <div class="section-number">📎</div>
+    <div class="section-title">
+      <small>Referensi Wajib</small>
+      Daftar Regulasi Terkait — Lengkap dengan Tautan
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Regulasi</th><th>Substansi Kunci</th><th>Tautan Resmi</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>UU No. 3 Tahun 2024</strong></td>
+          <td>Perubahan Kedua UU Desa; masa jabatan Kades 8 tahun; dasar hukum perencanaan desa</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/283617/uu-no-3-" target="_blank" rel="noopener">peraturan.bpk.go.id ↗</a></td>
+        </tr>
+        <tr>
+          <td><strong>PP No. 16 Tahun 2026</strong></td>
+          <td>Peraturan pelaksanaan UU Desa; kewenangan desa (Pasal 31–37); perencanaan berbasis data; muatan RKP Desa</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/349409/pp-no-16-tahun-2026" target="_blank" rel="noopener">peraturan.bpk.go.id ↗</a></td>
+        </tr>
+        <tr>
+          <td><strong>Permendes PDTT No. 21 Tahun 2020</strong></td>
+          <td>Alur 7 tahapan penyusunan RKP Desa; Rembuk Stunting sebelum Musdes</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/199685/permendesa-pdtt-no-21-tahun-2020" target="_blank" rel="noopener">peraturan.bpk.go.id ↗</a></td>
+        </tr>
+        <tr>
+          <td><strong>Permendagri No. 20 Tahun 2018</strong></td>
+          <td>Pengelolaan Keuangan Desa; siklus APBDesa dari perencanaan hingga pertanggungjawaban. <strong>Mencabut Permendagri 113/2014; Mengubah Permendagri 114/2014</strong></td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">peraturan.bpk.go.id ↗</a></td>
+        </tr>
+        <tr>
+          <td><strong>PMK No. 7 Tahun 2026</strong></td>
+          <td>Pengelolaan Dana Desa TA 2026; pagu Rp60,57 T; komposisi alokasi; syarat salur; sanksi</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/339757/pmk-no-7-tahun-2026" target="_blank" rel="noopener">peraturan.bpk.go.id ↗</a></td>
+        </tr>
+        <tr>
+          <td><strong>Permendes PDT No. 16 Tahun 2025</strong></td>
+          <td>8 fokus penggunaan Dana Desa; DOP maks 3%; BLT Rp300.000/KPM/bulan; larangan; sanksi</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/343678/permendesa-pdt-kemendesa-pdt-no-16-tahun-2025" target="_blank" rel="noopener">peraturan.bpk.go.id ↗</a></td>
+        </tr>
+        <tr>
+          <td><strong>Perpres No. 12 Tahun 2025</strong></td>
+          <td>RPJMN 2025–2029; Prioritas Nasional: Membangun dari Desa dan dari Bawah</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/314638/perpres-" target="_blank" rel="noopener">peraturan.bpk.go.id ↗</a></td>
+        </tr>
+        <tr>
+          <td><strong>Permendes PDT No. 13 Tahun 2025</strong></td>
+          <td>Pedoman Sistem Informasi Desa (mencabut sebagian ketentuan Permendes 21/2020)</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/342744/permendesa-pdt-kemendesa-pdt-no-13-tahun-2025" target="_blank" rel="noopener">peraturan.bpk.go.id ↗</a></td>
+        </tr>
+        <tr>
+          <td><strong>Permendes PDT No. 10 Tahun 2025</strong></td>
+          <td>Mekanisme persetujuan Kepala Desa untuk pembiayaan Koperasi Desa Merah Putih</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/337587/permendesa-pdt-kemendesa-pdt-no-10-tahun-2025" target="_blank" rel="noopener">peraturan.bpk.go.id ↗</a></td>
+        </tr>
+        <tr>
+          <td><strong>Permendagri No. 2 Tahun 2017</strong></td>
+          <td>Standar Pelayanan Minimal Desa (SPM Desa)</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/111474/permendagri-no-2-tahun-2017" target="_blank" rel="noopener">peraturan.bpk.go.id ↗</a></td>
+        </tr>
+        <tr>
+          <td><strong>RAPBN 2027 (Buku II Nota Keuangan)</strong></td>
+          <td>Proyeksi Dana Desa Rp77 T; 5 kebijakan prioritas; dukungan KDMP</td>
+          <td><a class="reg-link" href="https://fiskal.kemenkeu.go.id/" target="_blank" rel="noopener">fiskal.kemenkeu.go.id ↗</a></td>
+        </tr>
+        <tr>
+          <td><strong>Permendagri No. 114 Tahun 2014</strong></td>
+          <td>Acuan teknis tahapan Musdes dan Musrenbangdes (sepanjang belum digantikan; sebagian ketentuan diubah oleh Permendagri 20/2018)</td>
+          <td><a class="reg-link" href="https://peraturan.bpk.go.id/Details/111737/" target="_blank" rel="noopener">peraturan.bpk.go.id ↗</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-warning">
+    <span class="icon">📌</span>
+    <div class="content">
+      <strong>Catatan Penutup</strong>
+      Seiring berlakunya PP No. 16 Tahun 2026, acuan perencanaan pembangunan desa <strong>tidak lagi merujuk pada Permendagri No. 114 Tahun 2014</strong> sebagai dasar utama. Permendes PDTT No. 21 Tahun 2020 tetap menjadi acuan teknis untuk tahapan operasional penyusunan RKP Desa. Untuk pengelolaan keuangan desa hingga APBDesa, acuan teknis utama adalah <strong>Permendagri No. 20 Tahun 2018</strong> (tautan resmi: <a class="reg-link" href="https://peraturan.bpk.go.id/Details/139714/permendagri-no-20-tahun-2018" target="_blank" rel="noopener">peraturan.bpk.go.id/Details/139714 ↗</a>).
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION DOWNLOAD ============ -->
+<section id="download">
+  <div class="section-header">
+    <div class="section-number green">📥</div>
+    <div class="section-title">
+      <small>Kelengkapan Administrasi</small>
+      Download Template Perencanaan Desa 2027
+    </div>
+  </div>
+
+  <p>
+    Untuk memudahkan penyusunan dokumen perencanaan pembangunan desa tahun 2027, tim narasumber TPP Kecamatan Amonggedo menyediakan <strong>paket kelengkapan administrasi</strong> yang dapat diunduh secara gratis. Paket ini mencakup seluruh format dan template yang dibutuhkan mulai dari tahap Rembuk Stunting, penyusunan RKP Desa, hingga penetapan APBDesa.
+  </p>
+
+  <div class="download-box">
+    <div class="download-icon">📂</div>
+    <div class="download-content">
+      <h3>Kelengkapan Perencanaan Desa 2027</h3>
+      <p class="download-desc">
+        Paket ini berisi format-format resmi sesuai regulasi terbaru, antara lain:
+      </p>
+      <div class="download-list">
+        <div class="download-item">
+          <span class="check">✅</span>
+          <span>Format Berita Acara Rembuk Stunting</span>
+        </div>
+        <div class="download-item">
+          <span class="check">✅</span>
+          <span>Format Daftar Hadir &amp; Undangan Musdes</span>
+        </div>
+        <div class="download-item">
+          <span class="check">✅</span>
+          <span>Format Rancangan RKP Desa</span>
+        </div>
+        <div class="download-item">
+          <span class="check">✅</span>
+          <span>Format DU-RKP Desa (Daftar Usulan)</span>
+        </div>
+        <div class="download-item">
+          <span class="check">✅</span>
+          <span>Format Berita Acara Musrenbangdes</span>
+        </div>
+        <div class="download-item">
+          <span class="check">✅</span>
+          <span>Format Peraturan Desa tentang RKP Desa</span>
+        </div>
+        <div class="download-item">
+          <span class="check">✅</span>
+          <span>Format Rancangan APBDesa</span>
+        </div>
+        <div class="download-item">
+          <span class="check">✅</span>
+          <span>Format RAB &amp; Desain Teknis Kegiatan</span>
+        </div>
+        <div class="download-item">
+          <span class="check">✅</span>
+          <span>Format Proposal Teknis Kegiatan</span>
+        </div>
+        <div class="download-item">
+          <span class="check">✅</span>
+          <span>Format Laporan Pertanggungjawaban</span>
+        </div>
+      </div>
+      <a href="https://drive.google.com/drive/folders/16ZzB_1lQEYmye-2dtdIUcjRLwrRTixEA?usp=sharing" target="_blank" rel="noopener" class="download-btn">
+        ⬇️ SILAHKAN DOWNLOAD KELENGKAPAN
+      </a>
+      <p class="download-note">
+        📌 <strong>Catatan:</strong> File tersedia dalam format Microsoft Word dan Excel. Pastikan Anda login ke akun Google terlebih dahulu untuk mengakses folder.
+      </p>
+    </div>
+  </div>
+
+  <div class="callout callout-warning">
+    <span class="icon">⚠️</span>
+    <div class="content">
+      <strong>Penting untuk Diperhatikan</strong>
+      Template yang disediakan bersifat <strong>contoh dan dapat disesuaikan</strong> dengan kondisi spesifik desa masing-masing. Pastikan setiap dokumen yang dihasilkan tetap merujuk pada:
+      <ul style="margin-top: 8px; margin-bottom: 0;">
+        <li>Peraturan Bupati tentang Pedoman Penyusunan APBDesa yang berlaku di Kabupaten Konawe</li>
+        <li>Petunjuk teknis dari Dinas Pemberdayaan Masyarakat dan Desa Kabupaten Konawe</li>
+        <li>Hasil musyawarah desa dan Rembuk Stunting yang telah dilaksanakan</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-badge">📋 Dokumen Resmi Narasumber</div>
+  <div class="footer-title">Materi Narasumber Musrenbangdes 2027</div>
+  <div class="footer-sub">
+    Disusun berdasarkan UU No. 3 Tahun 2024, PP No. 16 Tahun 2026, Permendes PDTT No. 21 Tahun 2020,
+    Permendagri No. 20 Tahun 2018, PMK No. 7 Tahun 2026, Permendes PDT No. 16 Tahun 2025,
+    dan Perpres No. 12 Tahun 2025 (RPJMN 2025–2029).
+  </div>
+  <div class="footer-author">
+    Oleh Tim Narasumber dari TPP Kecamatan Amonggedo
+  </div>
+  <div class="footer-sub" style="font-weight: 600;">
+    Juni 2026
+  </div>
+  <div class="footer-note">
+    © 2026 — TPP Kecamatan Amonggedo, Kabupaten Konawe. Dokumen Panduan Perencanaan Pembangunan Desa.
+    Seluruh tautan regulasi mengarah ke sumber resmi (peraturan.bpk.go.id dan fiskal.kemenkeu.go.id).
+  </div>
+</footer>
+
+<!-- ============ FLOATING DOWNLOAD BUTTON ============ -->
+<a href="https://drive.google.com/drive/folders/16ZzB_1lQEYmye-2dtdIUcjRLwrRTixEA?usp=sharing" target="_blank" rel="noopener" class="floating-download" title="Download Kelengkapan Perencanaan">
+  <span class="floating-icon">⬇️</span>
+  <span class="floating-text">Download Template</span>
+</a>
+
+<script>
+  // ============ SMOOTH SCROLL ============
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Close mobile menu after click
+        document.querySelector('.nav-inner')?.classList.remove('open');
+      }
+    });
+  });
+
+  // ============ HIGHLIGHT NAV AKTIF SAAT SCROLL ============
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.style.background = '';
+      link.style.color = '';
+      link.style.borderBottomColor = 'transparent';
+      const href = link.getAttribute('href').substring(1);
+      if (href === current) {
+        link.style.background = 'var(--gray-50)';
+        link.style.color = 'var(--primary)';
+        link.style.borderBottomColor = 'var(--accent)';
+      }
+    });
+  });
+
+  // ============ TOGGLE MOBILE MENU ============
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) {
+      document.querySelector('.nav-inner')?.classList.remove('open');
+    }
+  });
+</script>
+
+</body>
+</html>
