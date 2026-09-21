@@ -124,6 +124,232 @@
   .meta-card .label { font-size: 11px; opacity: 0.8; letter-spacing: 1px; text-transform: uppercase; }
   .meta-card .value { font-size: 16px; font-weight: 700; margin-top: 4px; color: var(--accent); }
 
+  /* ============ NARASUMBER BOX ============ */
+  .narasumber-box {
+    background: linear-gradient(135deg, #1e3a5f 0%, var(--primary) 50%, var(--primary-light) 100%);
+    padding: 40px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .narasumber-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(245,166,35,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .narasumber-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .narasumber-heading {
+    text-align: center;
+    color: white;
+    margin-bottom: 32px;
+  }
+
+  .narasumber-heading .badge-ns {
+    display: inline-block;
+    background: rgba(245,166,35,0.2);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .narasumber-heading h2 {
+    font-size: clamp(20px, 2.5vw, 28px);
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+
+  .narasumber-heading p {
+    color: rgba(255,255,255,0.85);
+    font-size: 14.5px;
+  }
+
+  .narasumber-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+  }
+
+  .narasumber-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 14px;
+    padding: 22px;
+    color: white;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .narasumber-card:hover {
+    background: rgba(255,255,255,0.14);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+    border-color: var(--accent);
+  }
+
+  .narasumber-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+  }
+
+  .narasumber-card.korcam::before {
+    background: linear-gradient(90deg, #f5a623, #d48806);
+  }
+
+  .narasumber-card.pld-1::before {
+    background: linear-gradient(90deg, #7c3aed, #a78bfa);
+  }
+
+  .narasumber-card.pld-2::before {
+    background: linear-gradient(90deg, #0d9488, #2dd4bf);
+  }
+
+  .narasumber-card.pld-3::before {
+    background: linear-gradient(90deg, #16a34a, #4ade80);
+  }
+
+  .narasumber-card .ns-role {
+    display: inline-block;
+    background: rgba(245,166,35,0.25);
+    color: var(--accent);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .narasumber-card.korcam .ns-role {
+    background: rgba(245,166,35,0.3);
+    color: #ffdc94;
+  }
+
+  .narasumber-card.pld-1 .ns-role {
+    background: rgba(124,58,237,0.3);
+    color: #d8b4fe;
+  }
+
+  .narasumber-card.pld-2 .ns-role {
+    background: rgba(13,148,136,0.3);
+    color: #99f6e4;
+  }
+
+  .narasumber-card.pld-3 .ns-role {
+    background: rgba(22,163,74,0.3);
+    color: #bbf7d0;
+  }
+
+  .narasumber-card .ns-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .narasumber-card.korcam .ns-avatar {
+    background: linear-gradient(135deg, #f5a623, #d48806);
+  }
+
+  .narasumber-card.pld-1 .ns-avatar {
+    background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  }
+
+  .narasumber-card.pld-2 .ns-avatar {
+    background: linear-gradient(135deg, #0d9488, #2dd4bf);
+  }
+
+  .narasumber-card.pld-3 .ns-avatar {
+    background: linear-gradient(135deg, #16a34a, #4ade80);
+  }
+
+  .narasumber-card .ns-name {
+    font-size: 17px;
+    font-weight: 800;
+    margin-bottom: 4px;
+    color: white;
+    line-height: 1.3;
+  }
+
+  .narasumber-card .ns-title {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    font-style: italic;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed rgba(255,255,255,0.2);
+  }
+
+  .narasumber-card .ns-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .narasumber-card .ns-desa-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .narasumber-card .ns-desa-list li {
+    padding: 5px 0 5px 20px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.9);
+    position: relative;
+    margin: 0;
+  }
+
+  .narasumber-card .ns-desa-list li::before {
+    content: '📍';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    font-size: 11px;
+  }
+
+  @media (max-width: 640px) {
+    .narasumber-box { padding: 30px 16px; }
+    .narasumber-grid { grid-template-columns: 1fr; }
+    .narasumber-card { padding: 18px; }
+  }
+
   /* ============ NAVIGATION ============ */
   .nav-sticky {
     position: sticky;
@@ -341,6 +567,11 @@
   .section-number.teal {
     background: linear-gradient(135deg, var(--teal) 0%, #2dd4bf 100%);
     box-shadow: 0 6px 16px rgba(13,148,136,0.3);
+  }
+
+  .section-number.accent {
+    background: linear-gradient(135deg, var(--accent) 0%, #f7b955 100%);
+    box-shadow: 0 6px 16px rgba(245,166,35,0.3);
   }
 
   .section-title {
@@ -1217,6 +1448,7 @@
     .floating-download { display: none; }
     section { box-shadow: none; border: 1px solid var(--gray-200); break-inside: avoid; }
     .cover { background: var(--primary-dark) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .narasumber-box { background: var(--primary-dark) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     a.reg-link { color: var(--primary) !important; }
   }
 
@@ -1278,6 +1510,77 @@
     </div>
   </div>
 </header>
+
+<!-- ============ NARASUMBER BOX ============ -->
+<div class="narasumber-box">
+  <div class="narasumber-inner">
+    <div class="narasumber-heading">
+      <div class="badge-ns">👥 Tim Narasumber</div>
+      <h2>Disampaikan Oleh</h2>
+      <p>Tim Pendamping Profesional (TPP) Kecamatan Amonggedo — Juni 2026</p>
+    </div>
+
+    <div class="narasumber-grid">
+      <!-- Narasumber 1 -->
+      <div class="narasumber-card korcam">
+        <div class="ns-role">Korcam TPP Kec. Amonggedo</div>
+        <div class="ns-avatar">KA</div>
+        <div class="ns-name">Kasriawan Ayub, ST</div>
+        <div class="ns-title">TPP PD Kec. Amonggedo</div>
+        <span class="ns-label">Desa Dampingan</span>
+        <ul class="ns-desa-list">
+          <li>Desa Amandete</li>
+          <li>Desa Benua</li>
+          <li>Desa Matabura</li>
+        </ul>
+      </div>
+
+      <!-- Narasumber 2 -->
+      <div class="narasumber-card pld-1">
+        <div class="ns-role">TPP PLD Kec. Amonggedo</div>
+        <div class="ns-avatar">SJ</div>
+        <div class="ns-name">Sigit Juni Sultra, S.Pt</div>
+        <div class="ns-title">TPP PLD Kec. Amonggedo</div>
+        <span class="ns-label">Desa Dampingan</span>
+        <ul class="ns-desa-list">
+          <li>Desa Watulawu</li>
+          <li>Desa Lalonona</li>
+          <li>Desa Mataiwoi</li>
+          <li>Desa Mendikonu</li>
+        </ul>
+      </div>
+
+      <!-- Narasumber 3 -->
+      <div class="narasumber-card pld-2">
+        <div class="ns-role">TPP PLD Kec. Amonggedo</div>
+        <div class="ns-avatar">NK</div>
+        <div class="ns-name">Nenga Kote</div>
+        <div class="ns-title">TPP PLD Kec. Amonggedo</div>
+        <span class="ns-label">Desa Dampingan</span>
+        <ul class="ns-desa-list">
+          <li>Desa Anahinunu</li>
+          <li>Desa Puasana</li>
+          <li>Desa Lalombonda</li>
+          <li>Desa Wawohine</li>
+        </ul>
+      </div>
+
+      <!-- Narasumber 4 -->
+      <div class="narasumber-card pld-3">
+        <div class="ns-role">TPP PLD Kec. Amonggedo</div>
+        <div class="ns-avatar">AA</div>
+        <div class="ns-name">Ainul Arif</div>
+        <div class="ns-title">TPP PLD Kec. Amonggedo</div>
+        <span class="ns-label">Desa Dampingan</span>
+        <ul class="ns-desa-list">
+          <li>Desa Ulu Benua</li>
+          <li>Desa Dunggua</li>
+          <li>Desa Amonggedo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ============ NAVIGATION ============ -->
 <nav class="nav-sticky">
@@ -3078,14 +3381,6 @@
       </tbody>
     </table>
   </div>
-
-  <div class="callout callout-warning">
-    <span class="icon">📌</span>
-    <div class="content">
-      <strong>Catatan Penutup</strong>
-      Seiring berlakunya PP No. 16 Tahun 2026, acuan perencanaan pembangunan desa <strong>tidak lagi merujuk pada Permendagri No. 114 Tahun 2014</strong> sebagai dasar utama. Permendes PDTT No. 21 Tahun 2020 tetap menjadi acuan teknis untuk tahapan operasional penyusunan RKP Desa. Untuk pengelolaan keuangan desa hingga APBDesa, acuan teknis utama adalah <strong>Permendagri No. 20 Tahun 2018</strong>.
-    </div>
-  </div>
 </section>
 
 <!-- ============ SECTION DOWNLOAD ============ -->
@@ -3099,7 +3394,7 @@
   </div>
 
   <p>
-    Untuk memudahkan penyusunan dokumen perencanaan pembangunan desa tahun 2027, tim narasumber TPP Kecamatan Amonggedo menyediakan <strong>paket kelengkapan administrasi</strong> yang dapat diunduh secara gratis. Paket ini mencakup seluruh format dan template yang dibutuhkan mulai dari tahap Rembuk Stunting, penyusunan RKP Desa, hingga penetapan APBDesa.
+    Untuk memudahkan penyusunan dokumen perencanaan pembangunan desa tahun 2027, tim narasumber TPP Kecamatan Amonggedo menyediakan <strong>paket kelengkapan administrasi</strong> yang dapat diunduh secara gratis.
   </p>
 
   <div class="download-box">
@@ -3159,19 +3454,6 @@
       </p>
     </div>
   </div>
-
-  <div class="callout callout-warning">
-    <span class="icon">⚠️</span>
-    <div class="content">
-      <strong>Penting untuk Diperhatikan</strong>
-      Template yang disediakan bersifat <strong>contoh dan dapat disesuaikan</strong> dengan kondisi spesifik desa masing-masing. Pastikan setiap dokumen yang dihasilkan tetap merujuk pada:
-      <ul style="margin-top: 8px; margin-bottom: 0;">
-        <li>Peraturan Bupati tentang Pedoman Penyusunan APBDesa yang berlaku di Kabupaten Konawe</li>
-        <li>Petunjuk teknis dari Dinas Pemberdayaan Masyarakat dan Desa Kabupaten Konawe</li>
-        <li>Hasil musyawarah desa dan Rembuk Stunting yang telah dilaksanakan</li>
-      </ul>
-    </div>
-  </div>
 </section>
 
 </main>
@@ -3186,9 +3468,9 @@
     Permendes PDT No. 16 Tahun 2025, dan Perpres No. 12 Tahun 2025 (RPJMN 2025–2029).
   </div>
   <div class="footer-author">
-    Oleh Tim Narasumber dari TPP Kecamatan Amonggedo
+    Disampaikan oleh Tim Narasumber TPP Kecamatan Amonggedo
   </div>
-  <div class="footer-sub" style="font-weight: 600;">
+  <div class="footer-sub" style="font-weight: 600; margin-top: 8px;">
     Juni 2026
   </div>
   <div class="footer-note">
