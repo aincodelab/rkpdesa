@@ -3,56 +3,56 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <url>
-    <loc>https://musrenbangdes-2027.example.id/</loc>
+    <loc>https://aincodelab.github.io/rkpdesa/</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://musrenbangdes-2027.example.id/#bab1</loc>
+    <loc>https://aincodelab.github.io/rkpdesa/#bab1</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://musrenbangdes-2027.example.id/#bab3a</loc>
+    <loc>https://aincodelab.github.io/rkpdesa/#bab3a</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://musrenbangdes-2027.example.id/#bab4</loc>
+    <loc>https://aincodelab.github.io/rkpdesa/#bab4</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://musrenbangdes-2027.example.id/#bab4a</loc>
+    <loc>https://aincodelab.github.io/rkpdesa/#bab4a</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://musrenbangdes-2027.example.id/#bab6</loc>
+    <loc>https://aincodelab.github.io/rkpdesa/#bab6</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://musrenbangdes-2027.example.id/#susunan-acara</loc>
+    <loc>https://aincodelab.github.io/rkpdesa/#susunan-acara</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://musrenbangdes-2027.example.id/#lampiran</loc>
+    <loc>https://aincodelab.github.io/rkpdesa/#lampiran</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
