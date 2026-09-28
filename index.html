@@ -926,6 +926,16 @@
   .acara-table .acara-nama { font-weight: 600; color: var(--gray-800); }
   .acara-table .pelaksana { font-size: 12.8px; color: var(--gray-600); font-style: italic; }
 
+  .visitor-card .vc-period {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--gray-600);
+  margin-top: 6px;
+  letter-spacing: .3px;
+  opacity: .8;
+  font-variant-numeric: tabular-nums;
+}
+
   /* ============ FORUM GRID ============ */
   .forum-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -1495,28 +1505,32 @@
           </span>
         </div>
 
-        <div class="visitor-grid">
-          <div class="visitor-card today">
-            <div class="vc-icon">📅</div>
-            <div class="vc-value" id="vsToday">–</div>
-            <div class="vc-label">Hari Ini</div>
-          </div>
-          <div class="visitor-card month">
-            <div class="vc-icon">🗓️</div>
-            <div class="vc-value" id="vsMonth">–</div>
-            <div class="vc-label">Bulan Ini</div>
-          </div>
-          <div class="visitor-card year">
-            <div class="vc-icon">📆</div>
-            <div class="vc-value" id="vsYear">–</div>
-            <div class="vc-label">Tahun Ini</div>
-          </div>
-          <div class="visitor-card total">
-            <div class="vc-icon">🌐</div>
-            <div class="vc-value" id="vsTotal">–</div>
-            <div class="vc-label">Total Keseluruhan</div>
-          </div>
-        </div>
+<div class="visitor-grid">
+  <div class="visitor-card today">
+    <div class="vc-icon" aria-hidden="true">📅</div>
+    <div class="vc-value" id="vsToday">–</div>
+    <div class="vc-label">Hari Ini</div>
+    <div class="vc-period" id="vsTodayLabel">–</div>
+  </div>
+  <div class="visitor-card month">
+    <div class="vc-icon" aria-hidden="true">🗓️</div>
+    <div class="vc-value" id="vsMonth">–</div>
+    <div class="vc-label">Bulan Ini</div>
+    <div class="vc-period" id="vsMonthLabel">–</div>
+  </div>
+  <div class="visitor-card year">
+    <div class="vc-icon" aria-hidden="true">📆</div>
+    <div class="vc-value" id="vsYear">–</div>
+    <div class="vc-label">Tahun Ini</div>
+    <div class="vc-period" id="vsYearLabel">–</div>
+  </div>
+  <div class="visitor-card total">
+    <div class="vc-icon" aria-hidden="true">🌐</div>
+    <div class="vc-value" id="vsTotal">–</div>
+    <div class="vc-label">Total Keseluruhan</div>
+    <div class="vc-period" id="vsTotalLabel">Sejak Juni 2026</div>
+  </div>
+</div>
 
         <div class="visitor-updated" id="vsUpdated">
           <span>⏳</span>
@@ -3788,6 +3802,50 @@ function updateVisitorUI(stats) {
     year:  stats?.year  ?? 0,
     total: stats?.total ?? 0
   };
+
+  // ── Nilai angka (dengan animasi) ──
+  const ids  = ['vsToday', 'vsMonth', 'vsYear', 'vsTotal'];
+  const vals = [safe.today, safe.month, safe.year, safe.total];
+  ids.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (el) animateNumber(el, vals[i]);
+  });
+
+  // ── Label periode (yang dibandingkan) ──
+  const setLabel = (id, val) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val || '–';
+  };
+
+  setLabel('vsTodayLabel', stats.todayLabel); // "Senin, 29 September 2026"
+  setLabel('vsMonthLabel', stats.monthLabel); // "September 2026"
+  setLabel('vsYearLabel',  stats.yearLabel);  // "2026"
+  setLabel('vsTotalLabel', 'Sejak Juni 2026');
+
+  // ── Sidebar footer ──
+  const sfIds = ['sfToday', 'sfMonth', 'sfYear', 'sfTotal'];
+  sfIds.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = formatNumber(vals[i]);
+  });
+
+  // ── Topbar pill ──
+  const tvToday = document.getElementById('tvToday');
+  const tvTotal = document.getElementById('tvTotal');
+  if (tvToday) tvToday.textContent = formatNumber(safe.today);
+  if (tvTotal) tvTotal.textContent = formatNumber(safe.total);
+
+  // ── Timestamp update ──
+  const upd = document.getElementById('vsUpdated');
+  if (upd) {
+    const t = new Date();
+    upd.innerHTML = '<span aria-hidden="true">✅</span><span>Diperbarui: ' +
+      t.toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' }) +
+      ' — dibandingkan dengan tanggal ' +
+      (stats.todayKey || '–') +
+      ' (' + (stats.timezone || 'WITA') + ')</span>';
+  }
+}
 
   // Section besar
   const ids = ['vsToday', 'vsMonth', 'vsYear', 'vsTotal'];
