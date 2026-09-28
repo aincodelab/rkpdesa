@@ -11,7 +11,7 @@ Disallow: /*?action=stats*
 Crawl-delay: 1
 
 # Sitemaps
-Sitemap: https://musrenbangdes-2027.example.id/sitemap.xml
+Sitemap: https://aincodelab.github.io/rkpdesa/sitemap.xml
 
 # Google
 User-agent: Googlebot
