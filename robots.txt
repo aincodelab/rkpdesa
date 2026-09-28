@@ -1,0 +1,22 @@
+# robots.txt — Musrenbangdes 2027
+# TPP Kecamatan Amonggedo
+
+User-agent: *
+Allow: /
+Disallow: /regions.json
+Disallow: /*?action=visit*
+Disallow: /*?action=stats*
+
+# Crawl delay untuk server yang lambat
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://musrenbangdes-2027.example.id/sitemap.xml
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
